@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SarahPendhari
 - 👀 I’m interested in Web Dev(Full Stack Development) and AI.
-- 🌱 I’m currently learning programming languages like Java, Pyhton and Dart.
+- 🌱 I’m currently learning programming languages like Java, Python and Dart.
 - 💞️ I’m looking to collaborate with people with similar interests as mine and am very enthusiatic about the work I do.
 - 📫 How to reach me Email : sarahpendhari@gmail.com
 
