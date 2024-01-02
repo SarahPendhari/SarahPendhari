@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SarahPendhari
-- 👀 I’m interested in Web Dev(Full Stack Development) and AI.
-- 🌱 I’m currently learning programming languages like Python, JavaScript and MERN stack.
+- 👀 I’m interested in Machine Learning and AI.
+- 🌱 I’m currently learning programming languages like Python, C++.
 - 💞️ I’m looking to collaborate with people with similar interests as mine and am very enthusiatic about the work I do.
 - 📫 How to reach me Email : sarahpendhari@gmail.com
 
