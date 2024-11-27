@@ -1,16 +1,28 @@
-## Hi there 👋
+# Personal Website 🌐
 
-<!--
-**SarahPendhari/SarahPendhari** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to the repository for my personal website! 🚀
 
-Here are some ideas to get you started:
+This website serves as a showcase of my professional journey, portfolio, and achievements. It highlights my skills in web development, research, and engineering while offering a glimpse into my recent projects, publications, and technical expertise.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Features
+
+About Me: An overview of my academic and professional background.
+
+Projects: A detailed showcase of my major projects with links to repositories and publications.
+
+Publications: A list of my research papers and contributions to the field of AI and Computer Science.
+
+Contact Me: Links to my LinkedIn, GitHub, and email for collaboration opportunities.
+
+## Technologies Used
+
+HTML/CSS for the structure and styling of the site.
+
+JavaScript for interactivity.
+
+Hosted on GitHub Pages for easy deployment.
+
+## Live Demo
+Check out my personal website live at: https://sarahpendhari.github.io/SarahPendhari/
+
+Feel free to explore and reach out for any collaboration or feedback!
