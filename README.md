@@ -1,28 +1,25 @@
-# Personal Website 🌐
+# 🌐 Personal Website
 
-Welcome to the repository for my personal website! 🚀
+Welcome to the repository for my **personal website**! 🚀  
+This site is a digital reflection of my journey as a researcher, developer, and engineer — featuring my latest projects, accomplishments, and professional story.
 
-This website serves as a showcase of my professional journey, portfolio, and achievements. It highlights my skills in web development, research, and engineering while offering a glimpse into my recent projects, publications, and technical expertise.
+## ✨ Features
 
-## Features
+- **About Me**: A concise overview of my academic background and career path.
+- **Projects**: A curated showcase of selected work with links to GitHub repositories and demos.
+- **Publications**: A list of my research papers and technical contributions in AI and Computer Science.
+- **Contact Me**: Direct access to my LinkedIn, GitHub, and email for potential collaborations.
 
-About Me: An overview of my academic and professional background.
+## 🛠️ Technologies Used
 
-Projects: A detailed showcase of my major projects with links to repositories and publications.
+- **HTML/CSS** – For clean and responsive structure and styling.
+- **JavaScript** – Adds interactivity and dynamic elements.
+- **GitHub Pages** – Simple and free deployment of static content.
 
-Publications: A list of my research papers and contributions to the field of AI and Computer Science.
+## 🔗 Live Demo
 
-Contact Me: Links to my LinkedIn, GitHub, and email for collaboration opportunities.
+👉 Check it out live: [https://sarahpendhari.github.io/SarahPendhari/](https://sarahpendhari.github.io/SarahPendhari/)
 
-## Technologies Used
+---
 
-HTML/CSS for the structure and styling of the site.
-
-JavaScript for interactivity.
-
-Hosted on GitHub Pages for easy deployment.
-
-## Live Demo
-Check out my personal website live at: https://sarahpendhari.github.io/SarahPendhari/
-
-Feel free to explore and reach out for any collaboration or feedback!
+Feel free to explore and connect with me if you're interested in collaborating or just want to chat tech! 🤝
