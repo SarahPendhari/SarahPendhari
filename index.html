@@ -10,13 +10,28 @@
   <!-- <link rel="icon" type="image/png" href="images/seal_icon.png"> -->
   <style>
     body {
-      background-color: #f6f4f4;
-      color: #000;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 20px;
-    }
+  background-color: #fff;
+  color: #000;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25 px; /* increased from default (~16px) */
+  line-height: 1.75;
+  margin: 0;
+  padding: 20px;
+}
+
+name {
+  font-size: 2.5em; /* bigger name at the top */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+heading {
+  font-size: 1.6em; /* increase for section titles */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
 
     a {
       color: #8ab4f8;
@@ -39,13 +54,6 @@
     td {
       padding: 2.5%;
       vertical-align: middle;
-    }
-
-    name {
-      font-size: 2em;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 20px;
     }
 
     p {
@@ -165,6 +173,50 @@ In the summer of 2023, I interned at Wondrlab India Pvt. Ltd., optimizing EDA an
     <table
       style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
       <tbody>
+        <tr>
+          <td width='20%'><img src='images/research/DR.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy
+              Images - IEEE (IATMSI 2025)</papertitle>
+              <br>
+            <a
+              href="https://ieeexplore.ieee.org/document/10985676">[pdf]</a><br>
+            <a
+              href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing">[Best Paper Award Certificate]</a>
+            <p></p>
+            <p>
+              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss but 
+              remains challenging due to limited labeled data and subtle lesion features. This study introduces a few-shot 
+              learning model integrating dual attention mechanisms with prototypical networks to address these challenges. 
+              Enhanced with spatial and channel attention modules, our modified ResNet-50 backbone achieves precise localization 
+              and adaptive feature weighting. 
+            </p>
+          </td>
+        </tr>
+
+         <tr>
+          <td width='20%'><img src='images/research/colorvitgan.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>ColourViTGAN: A Hybridised Approach Using Vision Transformers and CycleGAN to Add Color to
+              Greyscale Images - IEEE (ICEC 2024) </papertitle>
+            <br>
+            <a
+              href="https://ieeexplore.ieee.org/document/10837458">[pdf]</a><br>
+            <a
+              href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing">[Best Paper Award Certificate]</a>
+            <p></p>
+            <p>
+              ColourViTGAN is a novel hybrid approach combining Vision Transformers (ViTs) and CycleGANs to achieve superior 
+              image recolorization for grayscale inputs. By integrating ViTs into both the generator and discriminator, 
+              the model captures long-range dependencies while preserving local details. Custom perceptual loss functions 
+              and advanced regularization techniques further enhance stability and performance. ColourViTGAN surpasses 
+              state-of-the-art models like Pix2Pix and ChromaGAN in terms of PSNR, SSIM, and LPIPS.
+            </p>
+          </td>
+        </tr>
+
 
         <tr>
           <td width='20%'><img src='images/research/brain.png' alt='pose' style='border-style: none' height='110' width='150'>
@@ -186,45 +238,7 @@ In the summer of 2023, I interned at Wondrlab India Pvt. Ltd., optimizing EDA an
             </p>
           </td>
         </tr>
-        
-        <tr>
-          <td width='20%'><img src='images/research/colorvitgan.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>ColourViTGAN: A Hybridised Approach Using Vision Transformers and CycleGAN to Add Color to
-              Greyscale Images - IEEE </papertitle>
-            <br>
-            <a
-              href="https://ieeexplore.ieee.org/document/10837458">[pdf]</a><br>
-            <a
-              href="https://drive.google.com/file/d/1o2UPYyTbnbJR9acvH29-E-FfbgCwtqTN/view?usp=sharing">[Best Paper Award Certificate]</a>
-            <p></p>
-            <p>
-              ColourViTGAN is a novel hybrid approach combining Vision Transformers (ViTs) and CycleGANs to achieve superior 
-              image recolorization for grayscale inputs. By integrating ViTs into both the generator and discriminator, 
-              the model captures long-range dependencies while preserving local details. Custom perceptual loss functions 
-              and advanced regularization techniques further enhance stability and performance. ColourViTGAN surpasses 
-              state-of-the-art models like Pix2Pix and ChromaGAN in terms of PSNR, SSIM, and LPIPS.
-            </p>
-          </td>
-        </tr>
-
-        <tr>
-          <td width='20%'><img src='images/research/DR.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy
-              Images - IEEE </papertitle>
-            <br>
-            <p>
-              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss but 
-              remains challenging due to limited labeled data and subtle lesion features. This study introduces a few-shot 
-              learning model integrating dual attention mechanisms with prototypical networks to address these challenges. 
-              Enhanced with spatial and channel attention modules, our modified ResNet-50 backbone achieves precise localization 
-              and adaptive feature weighting. 
-            </p>
-          </td>
-        </tr>
+      
 
         <tr>
           <td width='20%'><img src='images/research/Tf.png' alt='pose' style='border-style: none' height='110' width='150'>
@@ -335,8 +349,8 @@ In the summer of 2023, I interned at Wondrlab India Pvt. Ltd., optimizing EDA an
         </tr>
         <tr>
           <td>
-            <strong>[Oct 2024]</strong> Started a new position as a Freelance AI trainer at <a
-              href="https://outlier.ai/">Outlier AI</a><br>
+            <strong>[Aug 2025]</strong> Joined CMU's <a
+              href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/">MSCV</a> program<br> 
             <strong>[Sept 2024]</strong> Started a new position as a SWE Fellow at <a
               href="https://headstarter.co/">Headstarter AI</a><br>
             <strong>[Jun 2024]</strong> Started a new position as a Summer Intern at 
