@@ -10,129 +10,129 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CDN (quick setup) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* Custom styles */
-    a {
-      color: #3b82f6;
-      transition: color 0.2s;
-    }
-
-    a:hover {
-      color: #1d4ed8;
-      text-decoration: underline;
-    }
-
-    .profile-img {
-      border-radius: 9999px;
-      object-fit: cover;
-    }
-
-    .section-heading {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #3b82f6;
-      display: inline-block;
-      padding-bottom: 0.25rem;
+    /* Custom hover gradients */
+    .btn-primary {
+      @apply bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:scale-105 transition-transform;
     }
 
     .card {
-      background-color: #f9fafb;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .card img {
-      border-radius: 0.5rem;
-      max-width: 150px;
+      @apply bg-white rounded-xl shadow-lg p-6 transition-transform hover:scale-105;
     }
   </style>
 </head>
 
-<body class="font-Inter bg-white text-gray-900">
+<body class="font-Inter bg-gray-50 text-gray-900">
 
-  <!-- HEADER -->
-  <header class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between py-10 px-4">
-    <div class="text-center md:text-left md:w-2/3">
-      <h1 class="text-4xl md:text-5xl font-bold mb-2">Sarah Pendhari</h1>
-      <p class="text-lg md:text-xl text-gray-700 mb-4">
-        Master's Student in <strong>Computer Vision</strong> at 
-        <a href="https://www.ri.cmu.edu/" target="_blank" rel="noopener">CMU Robotics Institute</a>
-      </p>
-      <p class="text-gray-700 mb-4">
-        Research Interests: Computer Vision & Machine Learning
-      </p>
-      <div class="space-x-4">
-        <a href="mailto:sarahpendhari@gmail.com" class="font-semibold">Email</a>
-        <a href="data/Sarah_Pendhari.pdf" class="font-semibold">CV</a>
-        <a href="https://www.linkedin.com/in/sarah-pendhari/" class="font-semibold">LinkedIn</a>
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+    <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center py-20 px-6 md:px-0">
+      <div class="md:w-2/3 space-y-6">
+        <h1 class="text-5xl md:text-6xl font-bold">Sarah Pendhari</h1>
+        <p class="text-xl md:text-2xl">
+          Master’s Student in <strong>Computer Vision</strong> at 
+          <a href="https://www.ri.cmu.edu/" class="underline">CMU Robotics Institute</a>
+        </p>
+        <p class="text-gray-200 text-lg">
+          Research & projects at the intersection of <strong>Computer Vision</strong> and <strong>Machine Learning</strong>.
+        </p>
+        <div class="flex space-x-4">
+          <a href="mailto:sarahpendhari@gmail.com" class="btn-primary">Email Me</a>
+          <a href="data/Sarah_Pendhari.pdf" class="btn-primary">Download CV</a>
+          <a href="https://www.linkedin.com/in/sarah-pendhari/" class="btn-primary">LinkedIn</a>
+        </div>
+      </div>
+      <div class="md:w-1/3 flex justify-center mb-10 md:mb-0">
+        <img src="images/Sarah.jpg" alt="Sarah Pendhari" class="rounded-full w-64 h-64 object-cover border-4 border-white shadow-xl">
       </div>
     </div>
-    <div class="mt-6 md:mt-0 md:w-1/3 flex justify-center">
-      <img src="images/Sarah.jpg" alt="Sarah Pendhari" class="profile-img w-48 h-48">
-    </div>
-  </header>
+  </section>
 
-  <main class="max-w-6xl mx-auto px-4">
+  <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
 
-    <!-- RESEARCH SECTION -->
-    <section class="mb-12">
-      <h2 class="section-heading">Research</h2>
-      <div class="grid md:grid-cols-2 gap-6 mt-6">
-        <!-- Research Item 1 -->
-        <div class="card flex">
-          <img src="images/research/DR.png" alt="Diabetic Retinopathy Research" class="mr-4">
+    <!-- RESEARCH -->
+    <section>
+      <h2 class="text-4xl font-bold mb-10 text-center text-gray-800">Research</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card flex space-x-4">
+          <img src="images/research/DR.png" alt="Diabetic Retinopathy" class="w-32 h-32 object-cover rounded-lg">
           <div>
-            <h3 class="font-bold">Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy Images - IEEE (IATMSI 2025)</h3>
-            <p class="text-sm mt-1">
-              <a href="https://ieeexplore.ieee.org/document/10985676" target="_blank">[PDF]</a> | 
-              <a href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing" target="_blank">[Best Paper Award]</a>
+            <h3 class="font-bold text-lg mb-2">Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy Images - IEEE (IATMSI 2025)</h3>
+            <p class="text-sm text-blue-600 mb-1">
+              <a href="https://ieeexplore.ieee.org/document/10985676" target="_blank">PDF</a> | 
+              <a href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing" target="_blank">Award</a>
             </p>
-            <p class="mt-2 text-gray-700 text-sm">
-              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss...
+            <p class="text-gray-700 text-sm">
+              Few-shot learning model with dual attention mechanisms for precise localization of microaneurysms...
             </p>
           </div>
         </div>
-        <!-- Research Item 2 -->
-        <div class="card flex">
-          <img src="images/research/colorvitgan.png" alt="ColorViTGAN Research" class="mr-4">
+
+        <div class="card flex space-x-4">
+          <img src="images/research/colorvitgan.png" alt="ColorViTGAN" class="w-32 h-32 object-cover rounded-lg">
           <div>
-            <h3 class="font-bold">ColourViTGAN: Vision Transformers + CycleGAN for Image Colorization - IEEE (ICEC 2024)</h3>
-            <p class="text-sm mt-1">
-              <a href="https://ieeexplore.ieee.org/document/10837458" target="_blank">[PDF]</a> | 
-              <a href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing" target="_blank">[Award]</a>
+            <h3 class="font-bold text-lg mb-2">ColourViTGAN: Vision Transformers + CycleGAN - IEEE (ICEC 2024)</h3>
+            <p class="text-sm text-blue-600 mb-1">
+              <a href="https://ieeexplore.ieee.org/document/10837458" target="_blank">PDF</a> | 
+              <a href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing" target="_blank">Award</a>
             </p>
-            <p class="mt-2 text-gray-700 text-sm">
-              ColourViTGAN is a hybrid approach combining Vision Transformers (ViTs) and CycleGANs to recolor grayscale inputs...
+            <p class="text-gray-700 text-sm">
+              Hybrid approach using ViTs and CycleGANs to recolor grayscale images, surpassing Pix2Pix and ChromaGAN...
             </p>
           </div>
         </div>
-        <!-- Add more research cards similarly -->
+
+        <!-- Add more research cards as needed -->
       </div>
     </section>
 
-    <!-- NEWS / UPDATES SECTION -->
-    <section class="mb-12">
-      <h2 class="section-heading">News & Updates</h2>
-      <ul class="list-disc list-inside mt-4 text-gray-700 space-y-2">
-        <li><strong>Aug 2025:</strong> Joined CMU's <a href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/">MSCV program</a></li>
-        <li><strong>Sept 2024:</strong> SWE Fellow at <a href="https://headstarter.co/">Headstarter AI</a></li>
-        <li><strong>Jun 2024:</strong> Summer Intern at <a href="https://www.iitb.ac.in/">IIT Bombay</a></li>
-        <li><strong>Jun 2023:</strong> Software Intern at <a href="https://wondrlab.com/">Wondrlab India Pvt. Ltd</a></li>
+    <!-- PROJECTS -->
+    <section>
+      <h2 class="text-4xl font-bold mb-10 text-center text-gray-800">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card">
+          <img src="images/projects/capstone-teaser.png" alt="Dynamic reconstruction" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="font-bold text-lg mb-1">Dynamic Reconstruction of Non-Rigid Scenes from RGB-D Videos</h3>
+          <p class="text-gray-700 text-sm mb-2">Simplifying avatar creation using smartphone RGB-D sensors and dynamic 3D reconstruction.</p>
+          <a href="https://mscvprojects.ri.cmu.edu/2024team3/" target="_blank" class="text-blue-600 font-semibold hover:underline">Project Page</a>
+        </div>
+
+        <div class="card">
+          <img src="images/projects/gauss-craft.png" alt="GaussCraft" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="font-bold text-lg mb-1">GaussCraft: Language-Driven Segmentation & Editing in 3D</h3>
+          <p class="text-gray-700 text-sm mb-2">Real-time 3D Gaussian Splatting for simplified 3D asset creation and editing.</p>
+          <a href="https://docs.google.com/presentation/d/1S9l76E-eZMoOTlmTm9fb9kvganE_zCvySWfclire99o/edit?usp=sharing" target="_blank" class="text-blue-600 font-semibold hover:underline">Poster</a>
+        </div>
+
+        <div class="card">
+          <img src="images/projects/squirrel_coffee_w_temporal.gif" alt="GIF-Tune" class="rounded-lg mb-4 w-full h-48 object-cover">
+          <h3 class="font-bold text-lg mb-1">GIF-Tune: One-Shot Tuning for Text-to-GIF Synthesis</h3>
+          <p class="text-gray-700 text-sm mb-2">Spatiotemporal attention and one-shot tuning for coherent GIF generation from text.</p>
+          <a href="https://www.andrew.cmu.edu/course/16-726-sp24/projects/anishaja/project/" target="_blank" class="text-blue-600 font-semibold hover:underline">Project Page</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section>
+      <h2 class="text-4xl font-bold mb-10 text-center text-gray-800">News & Updates</h2>
+      <ul class="space-y-4 text-gray-700 max-w-3xl mx-auto list-disc list-inside">
+        <li><strong>Aug 2025:</strong> Joined CMU MSCV program</li>
+        <li><strong>Sept 2024:</strong> SWE Fellow at Headstarter AI</li>
+        <li><strong>Jun 2024:</strong> Summer Intern at IIT Bombay</li>
+        <li><strong>Jun 2023:</strong> Software Intern at Wondrlab India Pvt. Ltd</li>
       </ul>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="border-t mt-12 py-6 text-center text-gray-500 text-sm">
-      Source code inspired by <a href="https://github.com/jonbarron/jonbarron_website" target="_blank">Jon Barron</a>
-    </footer>
-
   </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 py-8 text-center text-gray-500 text-sm">
+    &copy; 2025 Sarah Pendhari | Source code inspired by <a href="https://github.com/jonbarron/jonbarron_website" class="text-blue-600 hover:underline">Jon Barron</a>
+  </footer>
 
 </body>
 </html>
