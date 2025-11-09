@@ -1,390 +1,138 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Sarah Pendhari</title>
-  <meta name="author" content="Sarah Penhdari">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <!-- <link rel="icon" type="image/png" href="images/seal_icon.png"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Sarah Pendhari">
+  <title>Sarah Pendhari | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (quick setup) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-  background-color: #fff;
-  color: #000;
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 30 px; /* increased from default (~16px) */
-  line-height: 1.75;
-  margin: 0;
-  padding: 20px;
-}
-
-name {
-  font-size: 2.5em; /* bigger name at the top */
-  font-weight: bold;
-  display: block;
-  margin-bottom: 20px;
-}
-
-heading {
-  font-size: 1.6em; /* increase for section titles */
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
+    /* Custom styles */
     a {
-      color: #8ab4f8;
-      text-decoration: none;
+      color: #3b82f6;
+      transition: color 0.2s;
     }
 
     a:hover {
+      color: #1d4ed8;
       text-decoration: underline;
     }
 
-    table {
-      width: 100%;
-      max-width: 800px;
-      border: 0;
-      border-spacing: 0;
-      border-collapse: separate;
-      margin: 0 auto;
+    .profile-img {
+      border-radius: 9999px;
+      object-fit: cover;
     }
 
-    td {
-      padding: 2.5%;
-      vertical-align: middle;
+    .section-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #3b82f6;
+      display: inline-block;
+      padding-bottom: 0.25rem;
     }
 
-    p {
-      margin-bottom: 15px;
+    .card {
+      background-color: #f9fafb;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      border-radius: 0.5rem;
+      max-width: 150px;
     }
   </style>
 </head>
 
-<body>
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:center">
-                    <name>Sarah Pendhari</name>
-                  </p>
-                <!-- I am currently pursuing a Bachelor’s in Computer Engineering (BE) at Thadomal Shahani Engineering College at Mumbai University, focusing on Computer Vision and Machine Learning.
+<body class="font-Inter bg-white text-gray-900">
 
-In January 2022, I worked as a Research Intern at M.H. Saboo Siddik College of Engineering, developing ColorViTGAN, a state-of-the-art image colorization model using Vision Transformers and CycleGAN.
+  <!-- HEADER -->
+  <header class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between py-10 px-4">
+    <div class="text-center md:text-left md:w-2/3">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Sarah Pendhari</h1>
+      <p class="text-lg md:text-xl text-gray-700 mb-4">
+        Master's Student in <strong>Computer Vision</strong> at 
+        <a href="https://www.ri.cmu.edu/" target="_blank" rel="noopener">CMU Robotics Institute</a>
+      </p>
+      <p class="text-gray-700 mb-4">
+        Research Interests: Computer Vision & Machine Learning
+      </p>
+      <div class="space-x-4">
+        <a href="mailto:sarahpendhari@gmail.com" class="font-semibold">Email</a>
+        <a href="data/Sarah_Pendhari.pdf" class="font-semibold">CV</a>
+        <a href="https://www.linkedin.com/in/sarah-pendhari/" class="font-semibold">LinkedIn</a>
+      </div>
+    </div>
+    <div class="mt-6 md:mt-0 md:w-1/3 flex justify-center">
+      <img src="images/Sarah.jpg" alt="Sarah Pendhari" class="profile-img w-48 h-48">
+    </div>
+  </header>
 
-In the summer of 2024, I was a Research Intern at IIT Bombay, where I developed IoT-based lake monitoring systems and improved satellite imagery quality using advanced image processing techniques.
+  <main class="max-w-6xl mx-auto px-4">
 
-From July to September 2024, I worked as a Software Engineer Fellow at Headstarter AI, building BuzzBot, an AI-powered customer support chatbot with advanced features like multi-language support and real-time feedback.
-
-In the summer of 2023, I interned at Wondrlab India Pvt. Ltd., optimizing EDA and web scraping pipelines to improve efficiency by 9.2%. -->
-                  <p>
-  I’m a first-year Master’s student in Computer Vision (MSCV) at 
-  <a href="https://www.ri.cmu.edu/">CMU’s Robotics Institute</a>, 
-  part of the <a href="https://www.cmu.edu/scs/">School of Computer Science</a>. 
-  My research interests lie at the intersection of Computer Vision and Machine Learning.
-</p>
-
-<p>
-  I’ve interned at <a href="https://www.iitb.ac.in/">IIT Bombay</a> (IoT-based lake monitoring, satellite image enhancement), 
-  <a href="https://headstarter.co/">Headstarter AI</a> (AI chatbot development), and 
-  <a href="https://wondrlab.com/">Wondrlab India</a> (optimizing EDA and web scraping pipelines). 
-  I also developed <a href="https://www.mhssce.ac.in/">ColorViTGAN</a> during a research internship at 
-  M.H. Saboo Siddik College of Engineering, a state-of-the-art image colorization model using Vision Transformers and CycleGAN.
-</p>
-
-<p>
-  I hold a Bachelor’s in Computer Engineering from 
-  <a href="https://tsec.edu/">Thadomal Shahani Engineering College</a>, 
-  affiliated with <a href="https://mu.ac.in/">Mumbai University</a>.
-</p>
-
-
-
-                  <p style="text-align:center">
-                    <a href="mailto:sarahpendhari@gmail.com">Email</a> &nbsp|&nbsp
-                    <a href="data\Sarah_Pendhari.pdf">CV</a> &nbsp|&nbsp
-                    <!-- <a href="https://scholar.google.com/">Google Scholar</a> &nbsp|&nbsp -->
-                    <a href="https://www.linkedin.com/in/sarah-pendhari/">Linkedin</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo"
-                    src="images/Sarah.jpg" class="hoverZoomLink">
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="10">
-    <!--
-    </tbody>
-    <tr>
-    </td>
-    <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
-      <a href="https://outlier.ai/"><img src="images/experience/outlier.jpeg" width="90%"></a>
-      <p style="line-height:1.3;"><a href="https://outlier.ai/">Outlier AI</a><br>Freelance AI Contractor<br>Oct 2024 - Present</p>
-    </td>
-    <td align="center" width="12%" style="vertical-align: middle; background-color: rgb(255, 255, 255)">
-      <a href="https://www.mhssce.ac.in/"><img src="images/experience/Mhsscoe_3.png" width="90%"></a>
-      <p style="line-height:1.3;"><a href="https://www.mhssce.ac.in/">M.H. Saboo Siddik College of Engineering</a><br>Research Intern<br>Jan 2022 - Present</p>
-    </td>
-    <td align="center" width="12%" style="vertical-align: middle; background-color: rgb(255, 255, 255)">
-      <a href="https://www.iitb.ac.in/"><img src="images/experience/Indian_Institute_of_Technology_Bombay_Logo.svg.png" width="90%"></a>
-      <p style="line-height:1.3;"><a href="https://www.iitb.ac.in/">IIT Bombay</a><br>Summer Intern<br>Jun 2024 - Aug 2024</p>
-    </td>
-    </tr>
-    <tr>
-      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
-        <a href="https://headstarter.co/"><img src="images/experience/channels4_profile.jpg" width="90%"></a>
-        <p style="line-height:1.3;"><a href="https://headstarter.co/">Headstarter AI</a>
-            <br>SWE Fellow<br>Jul 2024 - Sept 2024</p>
-        </td>
-      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
-        <a href="https://wondrlab.com/"><img src="images/experience/Wondrlab.png" width="90%"></a>
-        <p style="line-height:1.3;"><a href="https://wondrlab.com/">Wondrlab India Pvt.Ltd.</a><br>SWE Intern<br>Jun 2023 - Sept 2023</p>
-      </td>
-      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
-        <a href="https://gdg.community.dev/gdg-on-campus-thadomal-shahani-engineering-college-mumbai-india/"><img src="images/experience/gdsc.png" width="90%"></a>
-        <p style="line-height:1.3;"><a href="https://gdg.community.dev/gdg-on-campus-thadomal-shahani-engineering-college-mumbai-india/">Google Student Developer Clubs</a><br>Senior Core Team<br>Aug 2022 - Aug 2024</p>
-    </tr>
-  </table>
--->
-    <!-- RESEARCH -->
-    <table
-      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Research</heading>
-            <p>
-              <!-- Enter about research interested in -->
+    <!-- RESEARCH SECTION -->
+    <section class="mb-12">
+      <h2 class="section-heading">Research</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <!-- Research Item 1 -->
+        <div class="card flex">
+          <img src="images/research/DR.png" alt="Diabetic Retinopathy Research" class="mr-4">
+          <div>
+            <h3 class="font-bold">Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy Images - IEEE (IATMSI 2025)</h3>
+            <p class="text-sm mt-1">
+              <a href="https://ieeexplore.ieee.org/document/10985676" target="_blank">[PDF]</a> | 
+              <a href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing" target="_blank">[Best Paper Award]</a>
             </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table
-      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td width='20%'><img src='images/research/DR.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy
-              Images - IEEE (IATMSI 2025)</papertitle>
-              <br>
-            <a
-              href="https://ieeexplore.ieee.org/document/10985676">[pdf]</a><br>
-            <a
-              href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing">[Best Paper Award Certificate]</a>
-            <p></p>
-            <p>
-              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss but 
-              remains challenging due to limited labeled data and subtle lesion features. This study introduces a few-shot 
-              learning model integrating dual attention mechanisms with prototypical networks to address these challenges. 
-              Enhanced with spatial and channel attention modules, our modified ResNet-50 backbone achieves precise localization 
-              and adaptive feature weighting. 
+            <p class="mt-2 text-gray-700 text-sm">
+              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss...
             </p>
-          </td>
-        </tr>
-
-         <tr>
-          <td width='20%'><img src='images/research/colorvitgan.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>ColourViTGAN: A Hybridised Approach Using Vision Transformers and CycleGAN to Add Color to
-              Greyscale Images - IEEE (ICEC 2024) </papertitle>
-            <br>
-            <a
-              href="https://ieeexplore.ieee.org/document/10837458">[pdf]</a><br>
-            <a
-              href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing">[Best Paper Award Certificate]</a>
-            <p></p>
-            <p>
-              ColourViTGAN is a novel hybrid approach combining Vision Transformers (ViTs) and CycleGANs to achieve superior 
-              image recolorization for grayscale inputs. By integrating ViTs into both the generator and discriminator, 
-              the model captures long-range dependencies while preserving local details. Custom perceptual loss functions 
-              and advanced regularization techniques further enhance stability and performance. ColourViTGAN surpasses 
-              state-of-the-art models like Pix2Pix and ChromaGAN in terms of PSNR, SSIM, and LPIPS.
+          </div>
+        </div>
+        <!-- Research Item 2 -->
+        <div class="card flex">
+          <img src="images/research/colorvitgan.png" alt="ColorViTGAN Research" class="mr-4">
+          <div>
+            <h3 class="font-bold">ColourViTGAN: Vision Transformers + CycleGAN for Image Colorization - IEEE (ICEC 2024)</h3>
+            <p class="text-sm mt-1">
+              <a href="https://ieeexplore.ieee.org/document/10837458" target="_blank">[PDF]</a> | 
+              <a href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing" target="_blank">[Award]</a>
             </p>
-          </td>
-        </tr>
-
-
-        <tr>
-          <td width='20%'><img src='images/research/brain.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>Benchmarking Deep Learning Models for Automated MRI-based Brain Tumor Detection: In-Depth Analysis
-              of CNN, VGG16, VGG19, ResNet-50, MobileNet, and InceptionV3 - IJCA</papertitle>
-            <br>
-            <a
-              href="https://www.ijcaonline.org/archives/volume186/number50/pendhari-2024-ijca-924233.pdf">[pdf]</a>
-            <p></p>
-            <p>
-              Early and accurate diagnosis of brain tumors is critical for effective treatment and improved survival rates.
-               While MRI scans are invaluable non-invasive tools, their manual interpretation is labor-intensive due to the 
-               complexity of 3D imaging. This study leverages cutting-edge deep learning models—CNN, VGG16, VGG19, ResNet-50, 
-               MobileNet, and InceptionV3—to automate brain tumor detection, achieving remarkable accuracy scores: CNN (97.55%), 
-               VGG16 (97.96%), and InceptionV3 (97.55%)
-               patient outcomes.
+            <p class="mt-2 text-gray-700 text-sm">
+              ColourViTGAN is a hybrid approach combining Vision Transformers (ViTs) and CycleGANs to recolor grayscale inputs...
             </p>
-          </td>
-        </tr>
-      
+          </div>
+        </div>
+        <!-- Add more research cards similarly -->
+      </div>
+    </section>
 
-        <tr>
-          <td width='20%'><img src='images/research/Tf.png' alt='pose' style='border-style: none' height='110' width='150'>
-          </td>
-          <td valign='top' width='80%'>
-            <papertitle>Advanced Neural Network-Based Color Transformation for Enhanced Visual Perception in Tritanopia Using
-              Deep Learning Algorithms - Taylor and Francis </papertitle>
-            <br>
-            <p>
-              This study addresses the challenges of color vision deficiencies, particularly tritanopia, 
-              by proposing an innovative image transformation approach to enhance color perception. 
-              Using convolutional autoencoders, our method converts blue hues into indigo shades, making
-               them more distinguishable for individuals with tritanopia. Training on a specialized dataset 
-               derived from COCO2017, we optimize for accuracy, precision, and perceptual fidelity using TensorFlow 
-               and Keras. 
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- NEWS / UPDATES SECTION -->
+    <section class="mb-12">
+      <h2 class="section-heading">News & Updates</h2>
+      <ul class="list-disc list-inside mt-4 text-gray-700 space-y-2">
+        <li><strong>Aug 2025:</strong> Joined CMU's <a href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/">MSCV program</a></li>
+        <li><strong>Sept 2024:</strong> SWE Fellow at <a href="https://headstarter.co/">Headstarter AI</a></li>
+        <li><strong>Jun 2024:</strong> Summer Intern at <a href="https://www.iitb.ac.in/">IIT Bombay</a></li>
+        <li><strong>Jun 2023:</strong> Software Intern at <a href="https://wondrlab.com/">Wondrlab India Pvt. Ltd</a></li>
+      </ul>
+    </section>
 
-    <!-- PROJECTS -->
-<!---
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Projects</heading>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td width='20%'><img src='images/projects/capstone-teaser.png' alt='pose' style='border-style: none' height='75'
-            width='150'></td>
-          <td valign='top' width='80%'>
-            <papertitle>Dynamic reconstruction of non-rigid scenes from monocular RGB-D videos</papertitle>
-            <br>
-            <a href="https://mscvprojects.ri.cmu.edu/2024team3/">[project page]</a>
-            <p></p>
-            <p>
-              Instead of using complex camera systems, the goal is to simplify avatar creation by only using smartphone data with rgb-d sensors which can profoundly enhance the scalability and adoption of avatars. We propose a novel method for dynamic 3D reconstruction focusing on non-rigidly deforming scenes captured by RGBD sensors.
-            </p>
-          </td>
-        </tr>
+    <!-- FOOTER -->
+    <footer class="border-t mt-12 py-6 text-center text-gray-500 text-sm">
+      Source code inspired by <a href="https://github.com/jonbarron/jonbarron_website" target="_blank">Jon Barron</a>
+    </footer>
 
-        <tr>
-          <td width='20%'><img src='images/projects/gauss-craft.png' alt='pose' style='border-style: none' height='75'
-            width='150'></td>
-          <td valign='top' width='80%'>
-            <papertitle>GaussCraft: Language Driven Segmentation and Editing in 3D Using Gaussian Splatting</papertitle>
-            <br>
-            <a href="https://docs.google.com/presentation/d/1S9l76E-eZMoOTlmTm9fb9kvganE_zCvySWfclire99o/edit?usp=sharing">[poster]</a>
-            <p></p>
-            <p>
-              We streamline 3D asset creation by editing existing scenes, reducing complexity and time. While NeRF offers detailed rendering, it's hard to manipulate. Instead, 3D Gaussian Splatting enables real-time rendering, simplifying tasks. Our architecture integrates vision language, allowing language-driven editing of visual properties. This bridges the gap between language understanding and 3D scene editing, enhancing workflows.
-            </p>
-          </td>
-        </tr>
-       
-        <tr>
-          <td width='20%' align="center"><img src='images/projects/squirrel_coffee_w_temporal.gif' alt='pose' style='border-style: none' height='100'
-            width='100'></td>
-          <td valign='top' width='80%'>
-            <papertitle>GIF-Tune: One-Shot Tuning for Continuous Text-to-GIF Synthesis</papertitle>
-            <br>
-            <a href="https://www.andrew.cmu.edu/course/16-726-sp24/projects/anishaja/project/">[project page]</a>
-            <p></p>
-            <p>
-              Our methodology can work with any text-to-image (T2I) diffusion architectures pre-trained on large image dataset. We introduce a spatiotemporal attention and background regularization techniques along with one-shot tuning strategy within our "GIF-Tune" model for temporally coherent and depth-consistent GIFs.
-            </p>
-          </td>
-        </tr>
+  </main>
 
-        <tr>
-          <td width='20%'><img src='images/projects/curios_entropy.png' alt='pose' style='border-style: none' height='75'
-              width='150'></td>
-          <td valign='top' width='80%'>
-            <papertitle>Curiosity & Entropy Driven Unsupervised RL in Multiple Environments</papertitle>
-            <br>
-            <a href="https://arxiv.org/abs/2401.04198">[arVix]</a>
-            <a
-              href="https://docs.google.com/presentation/d/1Xc26eU-Ou0IyV--JCwlJKKHmnM6Fx_aNEFaNUr6Qfkg/edit?usp=sharing">[slides]</a>
-            <p></p>
-            <p>
-              Alpha-MEPOL method for unsupervised RL in multiple environments achieves enhanced performance with dynamic
-              alpha and a higher KL-Divergence threshold. Curiosity-driven exploration proves effective in
-              high-dimensional environments, fostering diverse experiences and improving learning outcomes. Our
-              experiments confirm positive results, highlighting the effectiveness of these modifications in the current
-              context.
-            </p>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-  -->
-
-    <!-- NEWS UPDATES -->
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td>
-            <heading>News Updates</heading>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>[Aug 2025]</strong> Joined CMU's <a
-              href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/">MSCV</a> program<br> 
-            <strong>[Sept 2024]</strong> Started a new position as a SWE Fellow at <a
-              href="https://headstarter.co/">Headstarter AI</a><br>
-            <strong>[Jun 2024]</strong> Started a new position as a Summer Intern at 
-            <a href="https://www.iitb.ac.in/">Indian Institute of Technology, Bombay</a><br>
-            <strong>[June 2023]</strong>Started a new position as a Software Intern<a href="https://wondrlab.com/">
-            Wondrlab India Pvt. Ltd</a> <br>
-            <strong>[Jun 2024]</strong> Started a new position as a Research Intern at 
-            <a href="https://www.mhssce.ac.in/">MHSSCOE</a><br>
-            <strong>[Dec 2021]</strong> Started undergradute college at <a
-              href="https://tsec.edu/">Thadomal Shahani Engineering College</a>
-              (University of Mumbai)</a><br>
-            <strong>[August 2021]</strong> Completed Junior College <br>
-            <strong>[Feb 2019]</strong> Started Junior College at <a
-              href="https://www.pacejuniorsciencecollege.com/">Pace Junior Science College</a><br>
-            <strong>[June 2019]</strong> Completed GSCE at <a href="https://www.dsrvmalad.org/"> DSRV, Mumbai</a><br>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table
-      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr>
-          <td style="padding:0px">
-            <br>
-            <p style="text-align:right;font-size:small;">
-              Source code from <a href="https://github.com/jonbarron/jonbarron_website"> Jon Barron</a>
-              <br>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
 </body>
-
 </html>
