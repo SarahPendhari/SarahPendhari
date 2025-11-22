@@ -1,152 +1,2337 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Sarah Pendhari">
-  <title>Sarah Pendhari | Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <title>Sarah Pendhari | Computer Vision & AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Sarah Pendhari — Computer Vision & Deep Learning researcher at Carnegie Mellon University." />
 
   <style>
+    :root {
+      --cmu-red: #a50034;
+      --cmu-red-dark: #7b0026;
+      --cmu-red-light: #fbe5ec;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 20px 45px rgba(15, 23, 42, 0.15);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --transition-fast: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #1f2937;
-    }
-
-    .section-heading {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #6366f1;
-      display: inline-block;
-      padding-bottom: 0.25rem;
-    }
-
-    .card {
-      background-color: #ffffff;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      padding: 1.5rem;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(135deg, #f9fafb, #ffffff);
     }
 
     a {
-      color: #6366f1;
-      text-decoration: underline;
+      color: inherit;
+      text-decoration: none;
     }
 
-    .profile-img {
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout helpers */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 6rem 0;
+      }
+    }
+
+    /* Header / Nav */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      transition: box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    header.scrolled {
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      border-color: transparent;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
+      -webkit-background-clip: text;
+      color: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #374151;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      background: #f9fafb;
+      border-color: var(--border-subtle);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.25);
+    }
+
+    .nav-link.active {
+      background: var(--cmu-red);
+      color: #ffffff;
+      border-color: var(--cmu-red);
+      box-shadow: 0 10px 25px rgba(165, 0, 52, 0.35);
+    }
+
+    .nav-social {
+      display: none;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: #4b5563;
+      background: #ffffff;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-icon-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--cmu-red);
+      color: var(--cmu-red);
+      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
+      background: #fff7f9;
+    }
+
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: #ffffff;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-toggle:hover {
+      transform: translateY(-1px);
+      border-color: var(--cmu-red);
+      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.35);
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      position: relative;
+      transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+    .nav-toggle span::after {
+      top: 6px;
+    }
+
+    .nav-toggle.open span {
+      background: transparent;
+    }
+
+    .nav-toggle.open span::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 1.5rem 1.25rem;
+      border-top: 1px solid rgba(229, 231, 235, 0.85);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-link {
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid transparent;
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: #374151;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .mobile-link:hover {
+      background: #f9fafb;
+      border-color: var(--border-subtle);
+      transform: translateY(-1px);
+    }
+
+    .mobile-link span {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .mobile-social {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-social {
+        display: flex;
+      }
+      .nav-toggle {
+        display: none;
+      }
+      .mobile-nav {
+        display: none !important;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: 6.5rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.18;
+      background:
+        radial-gradient(circle at top left, rgba(165, 0, 52, 0.2), transparent 55%),
+        radial-gradient(circle at top right, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom, rgba(239, 246, 255, 0.8), transparent 60%);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+        align-items: center;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(252, 165, 165, 0.8);
+      background: rgba(254, 242, 242, 0.85);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cmu-red-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-eyebrow-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      border: 4px solid #6366f1;
+      background: var(--cmu-red);
+      box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.35);
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.4rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 3.75rem;
+      }
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-typing {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-typing-role {
+      font-weight: 600;
+      color: var(--cmu-red-dark);
+    }
+
+    .hero-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--cmu-red-dark);
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--cmu-red);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      box-shadow: 0 16px 30px rgba(165, 0, 52, 0.35);
+      transition: transform 160ms ease-out, box-shadow 160ms ease-out, background 160ms ease-out, border-color 160ms ease-out;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: var(--cmu-red-dark);
+      border-color: var(--cmu-red-dark);
+      box-shadow: 0 20px 45px rgba(165, 0, 52, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.78rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(156, 163, 175, 0.7);
+      background: rgba(255, 255, 255, 0.9);
+      color: #374151;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      border-color: var(--cmu-red);
+      color: var(--cmu-red-dark);
+      background: #fff7f9;
+      box-shadow: 0 12px 25px rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .hero-meta span strong {
+      color: #111827;
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: min(340px, 100%);
+      background: radial-gradient(circle at top, #ffffff, #f9fafb);
+      border-radius: 1.75rem;
+      padding: 1.6rem 1.4rem 1.5rem;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at top, rgba(165, 0, 52, 0.12), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-avatar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 3px solid #ffffff;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+      background: #e5e7eb;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-avatar-tag {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translate(25%, 25%);
+      background: linear-gradient(135deg, var(--cmu-red), #ff4b6e);
+      border-radius: 999px;
+      padding: 0.28rem 0.5rem;
+      font-size: 0.7rem;
+      color: #ffffff;
+      box-shadow: 0 12px 25px rgba(165, 0, 52, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #f9fafb;
+      font-size: 0.75rem;
+      color: #4b5563;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-pills {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .hero-card-footer span strong {
+      color: var(--cmu-red-dark);
+    }
+
+    .hero-footer-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 7px rgba(134, 239, 172, 0.6);
+    }
+
+    /* Section headings */
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 32rem;
+      margin: 0 auto 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .section-divider {
+      width: 82px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cmu-red), #fb7185);
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 2rem;
+    }
+
+    .about-bio p {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .about-highlight {
+      margin: 1.1rem 0;
+      padding: 1rem 1.2rem;
+      border-radius: 1rem;
+      background: var(--cmu-red-light);
+      border-left: 4px solid var(--cmu-red);
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .about-highlight span {
+      color: var(--cmu-red-dark);
+      font-weight: 700;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .about-stat {
+      padding: 0.9rem 1rem;
+      border-radius: 0.9rem;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .about-stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cmu-red-dark);
+    }
+
+    .about-stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+    }
+
+    .about-avatar-large {
+      position: relative;
+      width: min(320px, 100%);
+      margin: 0 auto;
+    }
+
+    .about-avatar-frame {
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 3px solid #ffffff;
+      box-shadow: var(--shadow-strong);
+      background: #e5e7eb;
+    }
+
+    .about-avatar-frame img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(17, 24, 39, 0.92);
+      color: #f9fafb;
+      font-size: 0.8rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .about-tag-pill {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .about-tag-right {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 0.32rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.94);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      font-size: 0.8rem;
+      color: #4b5563;
+    }
+
+    /* Projects */
+    #projects {
+      background: #f9fafb;
+    }
+
+    .projects-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1120px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-strong);
+      border-color: rgba(165, 0, 52, 0.5);
+    }
+
+    .project-image {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 300ms ease;
+      filter: saturate(1.1) contrast(1.03);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.03);
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(248, 250, 252, 0.98);
+      color: var(--cmu-red-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-body {
+      padding: 1.15rem 1.3rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      color: #4b5563;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--cmu-red-dark);
+      margin-top: 0.3rem;
+    }
+
+    .project-link span.arrow {
+      transition: transform 160ms ease;
+    }
+
+    .project-card:hover .project-link span.arrow {
+      transform: translateX(2px);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: 1.5rem;
+      border: 1px solid #e5e7eb;
+      max-width: 780px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-strong);
+      transform: translateY(12px) scale(0.97);
+      opacity: 0;
+      transition: transform 220ms ease-out, opacity 220ms ease-out;
+    }
+
+    .modal.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.5rem 1.5rem 1.1rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .modal-close-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      color: #6b7280;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .modal-close-btn:hover {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .modal-body {
+      padding: 1.25rem 1.5rem 1.6rem;
+      font-size: 0.96rem;
+    }
+
+    .modal-body p {
+      margin: 0 0 1rem;
+      color: #4b5563;
+      line-height: 1.8;
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--cmu-red-light);
+      color: var(--cmu-red-dark);
+      font-weight: 500;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(156, 163, 175, 0.7);
+      background: #ffffff;
+      color: #111827;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--cmu-red);
+      color: var(--cmu-red-dark);
+      background: #fff7f9;
+      box-shadow: 0 10px 22px rgba(148, 163, 184, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Research */
+    .research-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 900px) {
+      .research-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .pub-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pub-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .pub-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .pub-chip {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #f97373;
+      background: #fef2f2;
+      color: var(--cmu-red-dark);
+      font-weight: 600;
+    }
+
+    .pub-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #bbf7d0;
+      background: #ecfdf3;
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    .pub-status.pending {
+      border-color: #facc15;
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .pub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .pub-abstract {
+      font-size: 0.86rem;
+      color: #4b5563;
+      line-height: 1.7;
+    }
+
+    .pub-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.35rem;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .pub-link {
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--cmu-red-dark);
+    }
+
+    /* Work Experience */
+    #experience {
+      background: #f9fafb;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(165, 0, 52, 0.4), rgba(248, 113, 113, 0.05));
+    }
+
+    @media (min-width: 768px) {
+      .timeline::before {
+        left: 18px;
+      }
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 1.2rem;
+      position: relative;
+    }
+
+    .tl-marker {
+      flex-shrink: 0;
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 2px solid #fee2e2;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(165, 0, 52, 0.25);
+    }
+
+    .tl-marker-inner {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--cmu-red);
+    }
+
+    .tl-card {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      padding: 1.25rem 1.35rem 1.3rem;
+    }
+
+    .tl-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-role {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-company {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cmu-red-dark);
+    }
+
+    .tl-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.15rem;
+    }
+
+    .tl-pill {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--cmu-red-light);
+      color: var(--cmu-red-dark);
+      border: 1px solid rgba(248, 113, 113, 0.7);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tl-body {
+      font-size: 0.88rem;
+      color: #4b5563;
+      line-height: 1.7;
+      margin: 0.45rem 0 0.8rem;
+    }
+
+    .tl-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+
+    .tl-list li::before {
+      content: "•";
+      color: var(--cmu-red);
+      margin-right: 0.4rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: start;
+      }
+    }
+
+    .contact-meta {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.75;
+    }
+
+    .contact-meta-block {
+      margin-top: 1.4rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--cmu-red-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cmu-red-dark);
+      font-size: 0.9rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.7rem;
+      border-radius: 0.75rem;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: #111827;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--cmu-red);
+      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3);
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .contact-status {
+      font-size: 0.83rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.7rem;
+      margin-top: 0.1rem;
+    }
+
+    .contact-status.success {
+      background: #ecfdf3;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .contact-status.error {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 2.5rem 0 2rem;
+    }
+
+    .footer-inner {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    .footer-heart {
+      color: #ef4444;
+    }
+
+    /* Scroll-to-top button */
+    .scroll-top {
+      position: fixed;
+      right: 1.3rem;
+      bottom: 1.3rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: #111827;
+      color: #f9fafb;
+      border: none;
+      display: flex;
+      visibility: hidden;
+      opacity: 0;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
+      transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease, background 160ms ease;
+      z-index: 40;
+    }
+
+    .scroll-top.visible {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--cmu-red-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Small tweaks */
+    @media (max-width: 600px) {
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
-
 <body>
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="nav-inner container">
+      <div class="nav-logo" data-scroll="#hero">Sarah Pendhari</div>
 
-  <!-- HERO SECTION -->
-  <section class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-16">
-    <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center px-6 md:px-0">
-      <div class="md:w-2/3 space-y-6">
-        <h1 class="text-5xl font-bold">Sarah Pendhari</h1>
-        <p class="text-xl">
-          I’m a first-year Master’s student in <strong>Computer Vision (MSCV)</strong> at 
-          <a href="https://www.ri.cmu.edu/">CMU Robotics Institute</a>. My research interests lie at the intersection of 
-          <strong>Computer Vision</strong> and <strong>Machine Learning</strong>.
+      <nav class="nav-links">
+        <button class="nav-link" data-scroll="#about">About</button>
+        <button class="nav-link" data-scroll="#projects">Projects</button>
+        <button class="nav-link" data-scroll="#research">Research</button>
+        <button class="nav-link" data-scroll="#experience">Experience</button>
+        <button class="nav-link" data-scroll="#contact">Contact</button>
+      </nav>
+
+      <div class="nav-social">
+        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
+        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav">
+      <button class="mobile-link" data-scroll="#about">
+        About <span>who I am</span>
+      </button>
+      <button class="mobile-link" data-scroll="#projects">
+        Projects <span>things I built</span>
+      </button>
+      <button class="mobile-link" data-scroll="#research">
+        Research <span>publications</span>
+      </button>
+      <button class="mobile-link" data-scroll="#experience">
+        Experience <span>work history</span>
+      </button>
+      <button class="mobile-link" data-scroll="#contact">
+        Contact <span>say hello</span>
+      </button>
+
+      <div class="mobile-social">
+        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
+        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div class="hero-left reveal">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          MS in Computer Vision · Carnegie Mellon University
+        </div>
+
+        <h1 class="hero-title">
+          Building <span class="accent">reliable AI systems</span>
+          for vision, health, and multimodal understanding.
+        </h1>
+
+        <div class="hero-typing">
+          <span>I&apos;m a</span>
+          <span class="hero-typing-role" id="typing-role"></span>
+          <span class="hero-cursor"></span>
+        </div>
+
+        <p class="hero-subtitle">
+          I work at the intersection of computer vision, deep learning, and multimodal AI—
+          from cryo-electron tomography and medical imaging to behavior understanding in short-form video.
         </p>
-        <p>
-          I’ve interned at <a href="https://www.iitb.ac.in/">IIT Bombay</a>, <a href="https://headstarter.co/">Headstarter AI</a>, and <a href="https://wondrlab.com/">Wondrlab India</a>. I also developed <a href="https://www.mhssce.ac.in/">ColorViTGAN</a> during a research internship at M.H. Saboo Siddik College of Engineering.
-        </p>
-        <div class="flex space-x-4">
-          <a href="mailto:sarahpendhari@gmail.com" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold shadow hover:scale-105 transition-transform">Email</a>
-          <a href="data/Sarah_Pendhari.pdf" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold shadow hover:scale-105 transition-transform">CV</a>
-          <a href="https://www.linkedin.com/in/sarah-pendhari/" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold shadow hover:scale-105 transition-transform">LinkedIn</a>
+
+        <div class="hero-buttons">
+          <button class="btn-primary" data-scroll="#projects">
+            View My Work
+            <span>↘</span>
+          </button>
+          <button class="btn-outline" onclick="window.open('https://sarahpendhari.github.io/SarahPendhari/data/Sarah_Pendhari.pdf', '_blank')">
+            Download CV
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span><strong>Research:</strong> CMU Tepper · Xu Lab</span>
+          <span><strong>Interests:</strong> Vision-Language, Diffusion Models, Medical AI</span>
         </div>
       </div>
-      <div class="md:w-1/3 flex justify-center mb-10 md:mb-0">
-        <img src="images/Sarah.jpg" alt="Sarah Pendhari" class="profile-img w-64 h-64 object-cover">
+
+      <div class="hero-right reveal">
+        <div class="hero-card">
+          <div class="hero-avatar-wrap">
+            <div class="hero-avatar">
+              <img src="profile.jpg" alt="Sarah Pendhari" />
+            </div>
+            <div>
+              <div style="font-weight:700;">Sarah Pendhari</div>
+              <div style="font-size:0.85rem;color:#6b7280;">Computer Vision & AI Researcher</div>
+              <div style="font-size:0.8rem;color:#9ca3af;margin-top:0.15rem;">
+                CMU · School of Computer Science
+              </div>
+            </div>
+            <div class="hero-avatar-tag">
+              <span style="font-size:0.8rem;">📄</span> 2× Best Paper
+            </div>
+          </div>
+
+          <div class="hero-pills">
+            <div class="hero-pill">🧠 Vision–Language Modeling</div>
+            <div class="hero-pill">🧬 Cryo-ET & Medical Imaging</div>
+            <div class="hero-pill">🧪 Diffusion & Few-Shot Learning</div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>Actively seeking <strong>Summer 2026</strong> internships.</span>
+            <div class="hero-footer-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About Me</h2>
+      <p class="section-subtitle reveal">
+        I&apos;m a graduate student in Computer Vision at Carnegie Mellon University, building data-efficient,
+        robust models for real-world visual and multimodal problems.
+      </p>
+      <div class="section-divider reveal"></div>
+
+      <div class="about-grid">
+        <div class="card about-bio reveal">
+          <p>
+            Hi, I&apos;m <strong>Sarah Pendhari</strong>, a Master of Science in Computer Vision student at
+            <strong>Carnegie Mellon University</strong>. My research spans computer vision, deep learning,
+            and multimodal AI, with a strong focus on data-efficient learning and robust model design.
+          </p>
+          <p>
+            I&apos;ve worked across domains including <strong>cryo-electron tomography</strong>,
+            <strong>image colorization</strong>, <strong>medical imaging</strong>, and
+            <strong>short-form video analysis</strong>. My previous work includes hybrid
+            Vision Transformer–GAN architectures, attention-enhanced few-shot models,
+            and real-time perception systems.
+          </p>
+
+          <div class="about-highlight">
+            🎯 I&apos;m currently looking for <span>Summer 2026 internships</span> in
+            <strong>Computer Vision</strong>, <strong>Machine Learning</strong>, and
+            <strong>Applied AI Research</strong>.
+          </div>
+
+          <p>
+            I enjoy working with large, noisy datasets; training computationally intensive deep learning models;
+            and turning research ideas into well-engineered systems. Lately, I&apos;ve been especially excited
+            about <strong>vision–language models</strong>, <strong>diffusion architectures</strong>, and
+            <strong>multimodal learning</strong>.
+          </p>
+
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-value">14+</div>
+              <div class="about-stat-label">Projects</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-value">2</div>
+              <div class="about-stat-label">Best Paper Awards</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-value">2</div>
+              <div class="about-stat-label">IEEE Conferences</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-value">20+</div>
+              <div class="about-stat-label">Technologies</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-avatar-large reveal">
+          <div class="about-avatar-frame">
+            <img src="cmu-banner.png" alt="Carnegie Mellon University" />
+          </div>
+          <div class="about-tag">
+            <span class="about-tag-pill"></span>
+            Open to AI Research Internships — 2026
+          </div>
+          <div class="about-tag-right">
+            MS in Computer Vision · CMU
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Featured Projects</h2>
+      <p class="section-subtitle reveal">
+        A curated selection of my most impactful computer vision and AI work—from hybrid transformers to
+        few-shot medical models and real-time assistive systems.
+      </p>
+      <div class="section-divider reveal"></div>
 
-    <!-- RESEARCH -->
-    <section>
-      <h2 class="section-heading">Research</h2>
-      <div class="space-y-8">
-        <!-- Paper 1 -->
-        <div class="card flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
-          <img src="images/research/DR.png" alt="Diabetic Retinopathy" class="w-32 h-32 object-cover rounded-lg">
-          <div>
-            <h3 class="font-bold text-lg">Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy Images - IEEE (IATMSI 2025)</h3>
-            <p class="text-blue-600 text-sm mt-1">
-              <a href="https://ieeexplore.ieee.org/document/10985676" target="_blank">PDF</a> | 
-              <a href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing" target="_blank">Best Paper Award</a>
-            </p>
-            <p class="text-gray-700 mt-2">
-              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss but remains challenging due to limited labeled data...
-            </p>
-          </div>
-        </div>
-
-        <!-- Paper 2 -->
-        <div class="card flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
-          <img src="images/research/colorvitgan.png" alt="ColorViTGAN" class="w-32 h-32 object-cover rounded-lg">
-          <div>
-            <h3 class="font-bold text-lg">ColourViTGAN: Vision Transformers + CycleGAN to Add Color to Greyscale Images - IEEE (ICEC 2024)</h3>
-            <p class="text-blue-600 text-sm mt-1">
-              <a href="https://ieeexplore.ieee.org/document/10837458" target="_blank">PDF</a> | 
-              <a href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing" target="_blank">Best Paper Award</a>
-            </p>
-            <p class="text-gray-700 mt-2">
-              ColourViTGAN is a hybrid approach combining Vision Transformers and CycleGANs to achieve superior image recolorization for grayscale inputs...
-            </p>
-          </div>
-        </div>
-
-        <!-- Paper 3 -->
-        <div class="card flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
-          <img src="images/research/brain.png" alt="Brain Tumor Detection" class="w-32 h-32 object-cover rounded-lg">
-          <div>
-            <h3 class="font-bold text-lg">Benchmarking Deep Learning Models for Automated MRI-based Brain Tumor Detection - IJCA</h3>
-            <p class="text-gray-700 mt-2">
-              Early and accurate diagnosis of brain tumors is critical for effective treatment and improved survival rates...
-            </p>
-          </div>
-        </div>
-
-        <!-- Add more papers as needed -->
+      <div class="projects-filters reveal">
+        <button class="btn-outline" data-filter="All">All</button>
+        <button class="btn-outline" data-filter="Computer Vision">Computer Vision</button>
+        <button class="btn-outline" data-filter="Deep Learning">Deep Learning</button>
+        <button class="btn-outline" data-filter="Medical AI">Medical AI</button>
       </div>
-    </section>
 
-    <!-- NEWS UPDATES -->
-    <section>
-      <h2 class="section-heading">News Updates</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li><strong>Aug 2025:</strong> Joined CMU MSCV program</li>
-        <li><strong>Sept 2024:</strong> SWE Fellow at Headstarter AI</li>
-        <li><strong>Jun 2024:</strong> Summer Intern at IIT Bombay</li>
-        <li><strong>Jun 2023:</strong> Software Intern at Wondrlab India Pvt. Ltd</li>
-      </ul>
-    </section>
+      <div class="projects-grid">
+        <article class="project-card reveal" data-category="Deep Learning" data-project="1">
+          <div class="project-image">
+            <img src="colorvitgan.png" alt="ColourViTGAN" />
+            <span class="project-badge">Best Paper</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">
+              ColourViTGAN — Hybrid Vision Transformer + CycleGAN Colorization
+            </h3>
+            <p class="project-desc">
+              Hybrid ViT–CycleGAN framework achieving 22.7 PSNR &amp; 0.982 SSIM.
+              Combines attention-based semantics with adversarial chrominance modeling.
+              Published at IEEE ICUIS 2024 (Best Paper).
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Vision Transformer</span>
+              <span class="project-tag">CycleGAN</span>
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">Image Colorization</span>
+            </div>
+            <div class="project-link">
+              <span>Learn more</span>
+              <span class="arrow">↗</span>
+            </div>
+          </div>
+        </article>
 
-  </main>
+        <article class="project-card reveal" data-category="Medical AI" data-project="2">
+          <div class="project-image">
+            <img src="fewshot-dr.png" alt="Few-shot microaneurysm detection" />
+            <span class="project-badge">Few-Shot</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">
+              Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection
+            </h3>
+            <p class="project-desc">
+              Dual-attention prototypical network for microaneurysm detection scoring
+              0.947 AUC &amp; 0.915 F1 on IDRiD. Published at IEEE IATMSI 2025 (Best Paper).
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Few-Shot Learning</span>
+              <span class="project-tag">ResNet-50</span>
+              <span class="project-tag">Attention</span>
+              <span class="project-tag">Medical Imaging</span>
+            </div>
+            <div class="project-link">
+              <span>Learn more</span>
+              <span class="arrow">↗</span>
+            </div>
+          </div>
+        </article>
 
-  <footer class="bg-gray-100 py-6 text-center text-gray-500 text-sm">
-    &copy; 2025 Sarah Pendhari | Source code inspired by <a href="https://github.com/jonbarron/jonbarron_website" class="text-blue-600 hover:underline">Jon Barron</a>
+        <article class="project-card reveal" data-category="Computer Vision" data-project="3">
+          <div class="project-image">
+            <img src="visionguard.png" alt="VisionGuard" />
+            <span class="project-badge">Real-Time</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">VisionGuard — Real-Time Object Detection Assistant</h3>
+            <p class="project-desc">
+              Edge-optimized YOLOv8 system for assisting visually impaired users with audio cues.
+              Low latency ONNX Runtime deployment and full edge-device pipeline.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">YOLOv8</span>
+              <span class="project-tag">ONNX Runtime</span>
+              <span class="project-tag">Real-Time Detection</span>
+              <span class="project-tag">OpenCV</span>
+            </div>
+            <div class="project-link">
+              <span>Learn more</span>
+              <span class="arrow">↗</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-backdrop" id="project-modal-backdrop" aria-hidden="true">
+    <div class="modal" id="project-modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Project title</h3>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-description"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <div id="modal-extra"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <h2 class="section-title reveal">Research &amp; Publications</h2>
+      <p class="section-subtitle reveal">
+        Selected work at the intersection of deep learning, medical imaging, and generative models.
+      </p>
+      <div class="section-divider reveal"></div>
+
+      <div class="research-grid">
+        <article class="pub-card reveal">
+          <div class="pub-header">
+            <div>
+              <div class="pub-title">
+                Advanced Neural Network-Based Color Transformation for Enhanced Visual Perception
+                in Tritanopia Using Deep Learning Algorithms
+              </div>
+              <div class="pub-meta">
+                <strong>Authors:</strong> S. Pendhari, N. Pendhari · <strong>Type:</strong> Journal (Under Review)
+              </div>
+              <div class="pub-chip-row">
+                <span class="pub-chip">Color Vision Deficiency</span>
+                <span class="pub-chip">Deep Learning</span>
+              </div>
+            </div>
+            <span class="pub-status pending">Under Review</span>
+          </div>
+          <p class="pub-abstract">
+            This work introduces a deep learning system that improves color perception for individuals
+            with Tritanopia using adaptive neural color transformations. It benchmarks CNNs, GANs,
+            and transformer-based models for perceptual enhancement.
+          </p>
+          <div class="pub-footer">
+            <span>Taylor &amp; Francis · 2025</span>
+            <span style="opacity:0.7;">Link available upon acceptance</span>
+          </div>
+        </article>
+
+        <article class="pub-card reveal">
+          <div class="pub-header">
+            <div>
+              <div class="pub-title">
+                Benchmarking Deep Learning Models for Automated MRI-based Brain Tumor Detection
+              </div>
+              <div class="pub-meta">
+                <strong>Author:</strong> S. Pendhari · International Journal of Computer Applications (IJCA)
+              </div>
+              <div class="pub-chip-row">
+                <span class="pub-chip">CNN</span>
+                <span class="pub-chip">ResNet</span>
+                <span class="pub-chip">Medical Imaging</span>
+              </div>
+            </div>
+            <span class="pub-status">Published</span>
+          </div>
+          <p class="pub-abstract">
+            A comprehensive benchmark of CNN, VGG16, VGG19, ResNet-50, MobileNet, and InceptionV3 for
+            MRI-based brain tumor classification. The study explores accuracy vs. inference-time trade-offs
+            for deployment-ready clinical workflows.
+          </p>
+          <div class="pub-footer">
+            <span>IJCA · Nov 2024</span>
+            <a class="pub-link" href="https://www.ijcaonline.org/archives/volume186/number50/benchmarking-deep-learning-models-for-automated-mri-based-brain-tumor-detection-in-depth-analysis-of-cnn-vgg16-vgg19-resnet-50-mobilenet-and-inceptionv3/" target="_blank">
+              View paper ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="pub-card reveal">
+          <div class="pub-header">
+            <div>
+              <div class="pub-title">
+                ColorViTAN: A Hybridised Vision Transformer and CycleGAN Approach to Add Color to Greyscale Images
+              </div>
+              <div class="pub-meta">
+                <strong>Authors:</strong> S. Pendhari, N. Pendhari · IEEE ICUIS 2024 · Best Paper Award
+              </div>
+              <div class="pub-chip-row">
+                <span class="pub-chip">Vision Transformer</span>
+                <span class="pub-chip">CycleGAN</span>
+                <span class="pub-chip">Image Colorization</span>
+              </div>
+            </div>
+            <span class="pub-status">Published</span>
+          </div>
+          <p class="pub-abstract">
+            Introduces a hybrid ViT–CycleGAN architecture for image colorization, achieving 22.7 PSNR and
+            0.982 SSIM by combining global semantic reasoning with local chrominance reconstruction.
+          </p>
+          <div class="pub-footer">
+            <span>IEEE ICUIS · 2024</span>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10837458" target="_blank">
+              View paper ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="pub-card reveal">
+          <div class="pub-header">
+            <div>
+              <div class="pub-title">
+                Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection
+                in Diabetic Retinopathy Images
+              </div>
+              <div class="pub-meta">
+                <strong>Author:</strong> S. Pendhari · IEEE IATMSI 2025 · Best Paper Award
+              </div>
+              <div class="pub-chip-row">
+                <span class="pub-chip">Few-Shot Learning</span>
+                <span class="pub-chip">Attention</span>
+                <span class="pub-chip">Diabetic Retinopathy</span>
+              </div>
+            </div>
+            <span class="pub-status">Published</span>
+          </div>
+          <p class="pub-abstract">
+            Proposes a dual-attention prototypical network for microaneurysm detection under extreme label scarcity,
+            achieving 0.947 AUC-ROC and 0.915 F1 on the IDRiD dataset.
+          </p>
+          <div class="pub-footer">
+            <span>IEEE IATMSI · 2025</span>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10985676" target="_blank">
+              View paper ↗
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title reveal">Work Experience</h2>
+      <p class="section-subtitle reveal">
+        Research and industry roles where I&apos;ve shipped models, pipelines, and systems—
+        from academic labs to startup environments.
+      </p>
+      <div class="section-divider reveal"></div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-marker">
+            <div class="tl-marker-inner"></div>
+          </div>
+          <article class="tl-card">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Graduate Research Assistant — Vision-Language Modeling</div>
+                <div class="tl-company">CMU Tepper School of Business · Pittsburgh, PA</div>
+                <div class="tl-meta">Nov 2025 — Present</div>
+              </div>
+              <span class="tl-pill">Research Assistant</span>
+            </div>
+            <p class="tl-body">
+              Developing a vision–language model that analyzes short-form TikTok video frames
+              to detect &quot;surprise&quot; events that drive user engagement.
+            </p>
+            <ul class="tl-list">
+              <li>Designed a temporal–spatial feature pipeline for high-variance short-form video.</li>
+              <li>Implemented self-supervised contrastive learning to stabilize surprise sequence predictions.</li>
+              <li>Collaborating with behavioral science faculty to quantify attention signals in media.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-marker">
+            <div class="tl-marker-inner"></div>
+          </div>
+          <article class="tl-card">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Graduate Research Assistant — Cryo-ET & Diffusion Models</div>
+                <div class="tl-company">CMU Xu Lab · School of Computer Science</div>
+                <div class="tl-meta">Oct 2025 — Present · Pittsburgh, PA</div>
+              </div>
+              <span class="tl-pill">Research Assistant</span>
+            </div>
+            <p class="tl-body">
+              Working on DUAL, an unsupervised framework for cryo-electron tomography that jointly
+              denoises 3D cellular volumes and synthesizes realistic training data.
+            </p>
+            <ul class="tl-list">
+              <li>Implemented a modified CycleDiffusion architecture with noise disentanglement.</li>
+              <li>Improved synthetic tomogram realism using 3D diffusion priors.</li>
+              <li>Accelerated denoising by 18% via kernel-level optimization and mixed precision.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-marker">
+            <div class="tl-marker-inner"></div>
+          </div>
+          <article class="tl-card">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Research Intern — Vision Transformers & GANs</div>
+                <div class="tl-company">University of Mumbai · Computer Engineering Dept.</div>
+                <div class="tl-meta">Jan 2025 — Mar 2025 · Mumbai, India</div>
+              </div>
+              <span class="tl-pill">Research Internship</span>
+            </div>
+            <p class="tl-body">
+              Worked under Prof. Nazneen Pendhari on state-of-the-art colorization and medical
+              few-shot learning systems.
+            </p>
+            <ul class="tl-list">
+              <li>Developed ColourViTGAN achieving 22.7 PSNR vs 20.5 baseline (0.982 SSIM, 0.224 LPIPS).</li>
+              <li>Published at IEEE ICUIS 2024 — Best Paper Award.</li>
+              <li>Built attention-enhanced prototypical networks achieving 0.947 AUC-ROC on IDRiD (IEEE IATMSI 2025, Best Paper).</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-marker">
+            <div class="tl-marker-inner"></div>
+          </div>
+          <article class="tl-card">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Summer Research Intern — IoT & Time-Series Forecasting</div>
+                <div class="tl-company">IIT Bombay · Centre of Studies in Resources Engineering</div>
+                <div class="tl-meta">Jun 2024 — Aug 2024 · Mumbai, India</div>
+              </div>
+              <span class="tl-pill">Research Internship</span>
+            </div>
+            <p class="tl-body">
+              Developed an end-to-end environmental monitoring pipeline with IoT sensors, LoRa, and
+              micro-climate forecasting.
+            </p>
+            <ul class="tl-list">
+              <li>Built ESP32–LoRa data acquisition capturing 10K+ readings per day.</li>
+              <li>Integrated real-time dashboards with Firebase and ThingsBoard.</li>
+              <li>Improved forecasting accuracy by 32.3% over baselines.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-marker">
+            <div class="tl-marker-inner"></div>
+          </div>
+          <article class="tl-card">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Software Developer Intern — ML Pipelines & Web Scraping</div>
+                <div class="tl-company">Wondrlab India Pvt. Ltd.</div>
+                <div class="tl-meta">Jun 2023 — Sep 2023 · Mumbai, India</div>
+              </div>
+              <span class="tl-pill">Industry Internship</span>
+            </div>
+            <p class="tl-body">
+              Worked on high-volume ETL pipelines, scraping infrastructure, and analytics dashboards
+              for media intelligence.
+            </p>
+            <ul class="tl-list">
+              <li>Optimized Airflow-based ETL pipelines, improving throughput by 9.2%.</li>
+              <li>Developed scalable Selenium + asyncio scraping for high-concurrency workloads.</li>
+              <li>Built Plotly dashboards with MongoDB-backed analytics.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Get In Touch</h2>
+      <p class="section-subtitle reveal">
+        Interested in research collaboration, internships, or discussing computer vision & AI systems?
+        I&apos;d love to hear from you.
+      </p>
+      <div class="section-divider reveal"></div>
+
+      <div class="contact-grid">
+        <div class="card contact-meta reveal">
+          <p>
+            I&apos;m especially excited about roles and collaborations that sit at the intersection of
+            <strong>vision</strong>, <strong>language</strong>, and <strong>scientific data</strong>—
+            whether it&apos;s medical imaging, large-scale perception, or multimodal reasoning.
+          </p>
+
+          <div class="contact-meta-block">
+            <div class="contact-row">
+              <div class="contact-icon">✉</div>
+              <div>
+                <div style="font-weight:600;">Email</div>
+                <div>spendhar@andrew.cmu.edu</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div style="font-weight:600;">Location</div>
+                <div>Pittsburgh, PA, USA</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon">🌐</div>
+              <div>
+                <div style="font-weight:600;">Links</div>
+                <div>
+                  <a href="https://github.com/SarahPendhari" target="_blank">GitHub</a> ·
+                  <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank">Google Scholar</a> ·
+                  <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <form id="contact-form">
+            <div class="field-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required />
+            </div>
+
+            <div class="field-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" id="contact-submit">
+              Send Message
+            </button>
+
+            <div id="contact-status" class="contact-status" style="display:none;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
+        <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank" class="nav-icon-btn" aria-label="Google Scholar">GS</a>
+        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
+      </div>
+      <div class="footer-badge">
+        Made with <span class="footer-heart">♥</span> &amp; a lot of gradients · {2025}
+      </div>
+      <div>© <span id="year"></span> Sarah Pendhari · All rights reserved.</div>
+    </div>
   </footer>
 
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typing effect
+    const roles = [
+      'Computer Vision Researcher',
+      'Machine Learning Engineer',
+      'Multimodal AI Enthusiast'
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    const typingRoleEl = document.getElementById('typing-role');
+
+    function typeLoop() {
+      const current = roles[roleIndex];
+      const speed = deleting ? 55 : 90;
+
+      if (!deleting) {
+        charIndex++;
+        if (charIndex >= current.length) {
+          charIndex = current.length;
+          setTimeout(() => { deleting = true; }, 1000);
+        }
+      } else {
+        charIndex--;
+        if (charIndex <= 0) {
+          charIndex = 0;
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+
+      typingRoleEl.textContent = current.slice(0, charIndex);
+      setTimeout(typeLoop, speed);
+    }
+    typeLoop();
+
+    // Smooth scroll for nav & buttons
+    function smoothScrollTo(target) {
+      const el = document.querySelector(target);
+      if (!el) return;
+      const headerOffset = 72;
+      const rect = el.getBoundingClientRect();
+      const offsetTop = window.scrollY + rect.top - headerOffset;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('[data-scroll]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-scroll');
+        smoothScrollTo(target);
+        // Close mobile nav if open
+        mobileNav.classList.remove('open');
+        navToggle.classList.remove('open');
+      });
+    });
+
+    // Header scroll behavior
+    const header = document.getElementById('site-header');
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY;
+      if (offset > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      if (offset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile nav
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+
+    // Projects filter
+    const filterButtons = document.querySelectorAll('.projects-filters .btn-outline');
+    const projectCards = document.querySelectorAll('.project-card');
+    let activeFilter = 'All';
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.getAttribute('data-filter');
+        filterButtons.forEach(b => b.classList.remove('btn-primary'));
+        filterButtons.forEach(b => (b.style.backgroundColor = '', b.style.color = ''));
+        btn.style.backgroundColor = '#111827';
+        btn.style.color = '#ffffff';
+
+        projectCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (activeFilter === 'All' || cat === activeFilter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Initialize default button style
+    if (filterButtons[0]) {
+      filterButtons[0].style.backgroundColor = '#111827';
+      filterButtons[0].style.color = '#ffffff';
+    }
+
+    // Project modal
+    const projectsData = {
+      1: {
+        title: 'ColourViTGAN — Hybrid Vision Transformer + CycleGAN Colorization',
+        description:
+          'ColourViTGAN combines Vision Transformers and CycleGAN for semantics-aware colorization. ViT learns global context through patch embeddings and multi-head attention, while CycleGAN reconstructs chrominance in the a*b* space, achieving 22.7 PSNR and 0.982 SSIM. The architecture improves visual fidelity, particularly for complex textures and foreground–background separation.',
+        tags: ['Vision Transformer', 'CycleGAN', 'Hybrid Architecture', 'Image Colorization', 'PyTorch'],
+        extra: 'Published at IEEE ICUIS 2024 · Best Paper Award.'
+      },
+      2: {
+        title: 'Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection',
+        description:
+          'This work extends prototypical networks with channel and spatial attention to better capture subtle microaneurysm patterns in retinal fundus images. The model achieves 0.947 AUC-ROC and 0.915 F1 on the IDRiD dataset, using only few labeled examples per class. The approach is particularly effective in low-data regimes common in medical imaging.',
+        tags: ['Few-Shot Learning', 'Prototypical Networks', 'Attention Mechanisms', 'Diabetic Retinopathy'],
+        extra: 'Published at IEEE IATMSI 2025 · Best Paper Award.'
+      },
+      3: {
+        title: 'VisionGuard — Real-Time Object Detection Assistant',
+        description:
+          'VisionGuard is a real-time assistive perception system for visually impaired users. It uses YOLOv8 for on-device object detection and ONNX Runtime for low-latency inference, paired with an audio feedback loop. The system is optimized for edge hardware with careful pre- and post-processing to maintain responsiveness while preserving detection quality.',
+        tags: ['YOLOv8', 'Edge AI', 'Assistive Technology', 'ONNX Runtime', 'Real-Time Systems'],
+        extra: '<a href="https://github.com/SarahPendhari/VisionGuard--Real-Time-Object-Detection-Assistant" target="_blank" style="color:#a50034;font-weight:600;">View GitHub repository ↗</a>'
+      }
+    };
+
+    const modalBackdrop = document.getElementById('project-modal-backdrop');
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalTags = document.getElementById('modal-tags');
+    const modalExtra = document.getElementById('modal-extra');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    function openModal(id) {
+      const data = projectsData[id];
+      if (!data) return;
+      modalTitle.textContent = data.title;
+      modalDescription.textContent = data.description;
+      modalTags.innerHTML = '';
+      data.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'modal-tag';
+        span.textContent = tag;
+        modalTags.appendChild(span);
+      });
+      modalExtra.innerHTML = data.extra || '';
+      modalBackdrop.classList.add('open');
+      modal.classList.add('open');
+      modalBackdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('open');
+      modal.classList.remove('open');
+      modalBackdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-project');
+        openModal(id);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', e => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Contact form — open mail client
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const subject = contactForm.subject.value.trim();
+      const message = contactForm.message.value.trim();
+
+      const mailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`);
+      const mailBody = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from sarahpendhari.github.io portfolio.`
+      );
+
+      try {
+        window.open(`mailto:spendhar@andrew.cmu.edu?subject=${mailSubject}&body=${mailBody}`, '_blank');
+        contactStatus.textContent =
+          'Your email client should now open with a pre-filled message. Please send it to complete.';
+        contactStatus.className = 'contact-status success';
+        contactStatus.style.display = 'block';
+        contactForm.reset();
+      } catch (err) {
+        contactStatus.textContent =
+          'Something went wrong opening your email client. You can email me directly at spendhar@andrew.cmu.edu.';
+        contactStatus.className = 'contact-status error';
+        contactStatus.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
