@@ -96,6 +96,7 @@
       letter-spacing: 0.02em;
       background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
       cursor: pointer;
       white-space: nowrap;
@@ -116,6 +117,7 @@
       color: #374151;
       border: 1px solid transparent;
       cursor: pointer;
+      background: transparent;
       transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
@@ -244,6 +246,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: transparent;
+      width: 100%;
+      text-align: left;
       transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     }
 
@@ -333,6 +338,12 @@
       border-radius: 50%;
       background: var(--cmu-red);
       box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.35);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     .hero-title {
@@ -357,6 +368,7 @@
     .hero-title span.accent {
       background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
@@ -372,6 +384,7 @@
     .hero-typing-role {
       font-weight: 600;
       color: var(--cmu-red-dark);
+      min-width: 280px;
     }
 
     .hero-cursor {
@@ -505,7 +518,12 @@
       overflow: hidden;
       border: 3px solid #ffffff;
       box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
-      background: #e5e7eb;
+      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
     }
 
     .hero-avatar img {
@@ -516,9 +534,8 @@
 
     .hero-avatar-tag {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      transform: translate(25%, 25%);
+      right: -10px;
+      top: -5px;
       background: linear-gradient(135deg, var(--cmu-red), #ff4b6e);
       border-radius: 999px;
       padding: 0.28rem 0.5rem;
@@ -528,6 +545,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
+      white-space: nowrap;
     }
 
     .hero-pill {
@@ -572,6 +590,7 @@
       border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 0 7px rgba(134, 239, 172, 0.6);
+      flex-shrink: 0;
     }
 
     /* Section headings */
@@ -682,12 +701,16 @@
       overflow: hidden;
       border: 3px solid #ffffff;
       box-shadow: var(--shadow-strong);
-      background: #e5e7eb;
+      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .about-avatar-frame img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -778,7 +801,11 @@
       position: relative;
       height: 180px;
       overflow: hidden;
-      background: #e5e7eb;
+      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
     }
 
     .project-image img {
@@ -1039,6 +1066,8 @@
       background: #ecfdf3;
       color: #15803d;
       font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .pub-status.pending {
@@ -1097,7 +1126,7 @@
     .timeline::before {
       content: "";
       position: absolute;
-      left: 12px;
+      left: 20px;
       top: 4px;
       bottom: 4px;
       width: 2px;
@@ -1106,7 +1135,7 @@
 
     @media (min-width: 768px) {
       .timeline::before {
-        left: 18px;
+        left: 26px;
       }
     }
 
@@ -1116,27 +1145,41 @@
       position: relative;
     }
 
-    .tl-marker {
+    .tl-marker-container {
       flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tl-marker {
       margin-top: 0.3rem;
       position: relative;
       z-index: 1;
-      width: 24px;
-      height: 24px;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
-      border: 2px solid #fee2e2;
+      border: 3px solid #fee2e2;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 8px 18px rgba(165, 0, 52, 0.25);
+      flex-shrink: 0;
     }
 
-    .tl-marker-inner {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--cmu-red);
+    .tl-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--cmu-red), #ff4b6e);
+      color: white;
     }
 
     .tl-card {
@@ -1250,6 +1293,7 @@
       justify-content: center;
       color: var(--cmu-red-dark);
       font-size: 0.9rem;
+      flex-shrink: 0;
     }
 
     form {
@@ -1413,6 +1457,13 @@
         width: 100%;
         justify-content: center;
       }
+      .hero-typing {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-typing-role {
+        min-width: auto;
+      }
     }
   </style>
 </head>
@@ -1482,7 +1533,7 @@
         </h1>
 
         <div class="hero-typing">
-          <span>I&apos;m a</span>
+          <span>I'm a</span>
           <span class="hero-typing-role" id="typing-role"></span>
           <span class="hero-cursor"></span>
         </div>
@@ -1512,7 +1563,8 @@
         <div class="hero-card">
           <div class="hero-avatar-wrap">
             <div class="hero-avatar">
-              <img src="profile.jpg" alt="Sarah Pendhari" />
+              <!-- Replace with: <img src="your-photo.jpg" alt="Sarah Pendhari" /> -->
+              👤
             </div>
             <div>
               <div style="font-weight:700;">Sarah Pendhari</div>
@@ -1522,7 +1574,7 @@
               </div>
             </div>
             <div class="hero-avatar-tag">
-              <span style="font-size:0.8rem;">📄</span> 2× Best Paper
+              <span style="font-size:0.8rem;">🏆</span> 2× Best Paper
             </div>
           </div>
 
@@ -1546,7 +1598,7 @@
     <div class="container">
       <h2 class="section-title reveal">About Me</h2>
       <p class="section-subtitle reveal">
-        I&apos;m a graduate student in Computer Vision at Carnegie Mellon University, building data-efficient,
+        I'm a graduate student in Computer Vision at Carnegie Mellon University, building data-efficient,
         robust models for real-world visual and multimodal problems.
       </p>
       <div class="section-divider reveal"></div>
@@ -1554,12 +1606,12 @@
       <div class="about-grid">
         <div class="card about-bio reveal">
           <p>
-            Hi, I&apos;m <strong>Sarah Pendhari</strong>, a Master of Science in Computer Vision student at
+            Hi, I'm <strong>Sarah Pendhari</strong>, a Master of Science in Computer Vision student at
             <strong>Carnegie Mellon University</strong>. My research spans computer vision, deep learning,
             and multimodal AI, with a strong focus on data-efficient learning and robust model design.
           </p>
           <p>
-            I&apos;ve worked across domains including <strong>cryo-electron tomography</strong>,
+            I've worked across domains including <strong>cryo-electron tomography</strong>,
             <strong>image colorization</strong>, <strong>medical imaging</strong>, and
             <strong>short-form video analysis</strong>. My previous work includes hybrid
             Vision Transformer–GAN architectures, attention-enhanced few-shot models,
@@ -1567,14 +1619,14 @@
           </p>
 
           <div class="about-highlight">
-            🎯 I&apos;m currently looking for <span>Summer 2026 internships</span> in
+            🎯 I'm currently looking for <span>Summer 2026 internships</span> in
             <strong>Computer Vision</strong>, <strong>Machine Learning</strong>, and
             <strong>Applied AI Research</strong>.
           </div>
 
           <p>
             I enjoy working with large, noisy datasets; training computationally intensive deep learning models;
-            and turning research ideas into well-engineered systems. Lately, I&apos;ve been especially excited
+            and turning research ideas into well-engineered systems. Lately, I've been especially excited
             about <strong>vision–language models</strong>, <strong>diffusion architectures</strong>, and
             <strong>multimodal learning</strong>.
           </p>
@@ -1601,7 +1653,8 @@
 
         <div class="about-avatar-large reveal">
           <div class="about-avatar-frame">
-            <img src="cmu-banner.png" alt="Carnegie Mellon University" />
+            <!-- Replace with: <img src="cmu-campus.jpg" alt="Carnegie Mellon University" /> -->
+            <div style="font-size:4rem;">🎓</div>
           </div>
           <div class="about-tag">
             <span class="about-tag-pill"></span>
@@ -1635,7 +1688,8 @@
       <div class="projects-grid">
         <article class="project-card reveal" data-category="Deep Learning" data-project="1">
           <div class="project-image">
-            <img src="colorvitgan.png" alt="ColourViTGAN" />
+            <!-- Replace with: <img src="colorvitgan.png" alt="ColourViTGAN" /> -->
+            🎨
             <span class="project-badge">Best Paper</span>
           </div>
           <div class="project-body">
@@ -1643,7 +1697,7 @@
               ColourViTGAN — Hybrid Vision Transformer + CycleGAN Colorization
             </h3>
             <p class="project-desc">
-              Hybrid ViT–CycleGAN framework achieving 22.7 PSNR &amp; 0.982 SSIM.
+              Hybrid ViT–CycleGAN framework achieving 22.7 PSNR & 0.982 SSIM.
               Combines attention-based semantics with adversarial chrominance modeling.
               Published at IEEE ICUIS 2024 (Best Paper).
             </p>
@@ -1662,7 +1716,8 @@
 
         <article class="project-card reveal" data-category="Medical AI" data-project="2">
           <div class="project-image">
-            <img src="fewshot-dr.png" alt="Few-shot microaneurysm detection" />
+            <!-- Replace with: <img src="fewshot-dr.png" alt="Few-shot microaneurysm detection" /> -->
+            👁️
             <span class="project-badge">Few-Shot</span>
           </div>
           <div class="project-body">
@@ -1671,7 +1726,7 @@
             </h3>
             <p class="project-desc">
               Dual-attention prototypical network for microaneurysm detection scoring
-              0.947 AUC &amp; 0.915 F1 on IDRiD. Published at IEEE IATMSI 2025 (Best Paper).
+              0.947 AUC & 0.915 F1 on IDRiD. Published at IEEE IATMSI 2025 (Best Paper).
             </p>
             <div class="project-tags">
               <span class="project-tag">Few-Shot Learning</span>
@@ -1688,7 +1743,8 @@
 
         <article class="project-card reveal" data-category="Computer Vision" data-project="3">
           <div class="project-image">
-            <img src="visionguard.png" alt="VisionGuard" />
+            <!-- Replace with: <img src="visionguard.png" alt="VisionGuard" /> -->
+            👓
             <span class="project-badge">Real-Time</span>
           </div>
           <div class="project-body">
@@ -1731,7 +1787,7 @@
   <!-- RESEARCH -->
   <section id="research">
     <div class="container">
-      <h2 class="section-title reveal">Research &amp; Publications</h2>
+      <h2 class="section-title reveal">Research & Publications</h2>
       <p class="section-subtitle reveal">
         Selected work at the intersection of deep learning, medical imaging, and generative models.
       </p>
@@ -1761,7 +1817,7 @@
             and transformer-based models for perceptual enhancement.
           </p>
           <div class="pub-footer">
-            <span>Taylor &amp; Francis · 2025</span>
+            <span>Taylor & Francis · 2025</span>
             <span style="opacity:0.7;">Link available upon acceptance</span>
           </div>
         </article>
@@ -1863,15 +1919,20 @@
     <div class="container">
       <h2 class="section-title reveal">Work Experience</h2>
       <p class="section-subtitle reveal">
-        Research and industry roles where I&apos;ve shipped models, pipelines, and systems—
+        Research and industry roles where I've shipped models, pipelines, and systems—
         from academic labs to startup environments.
       </p>
       <div class="section-divider reveal"></div>
 
       <div class="timeline">
         <div class="tl-item reveal">
-          <div class="tl-marker">
-            <div class="tl-marker-inner"></div>
+          <div class="tl-marker-container">
+            <div class="tl-marker">
+              <div class="tl-logo" style="background: linear-gradient(135deg, #a50034, #ff4b6e);">
+                <!-- Replace with: <img src="cmu-logo.png" alt="CMU" style="width:100%;height:100%;object-fit:contain;"/> -->
+                CMU
+              </div>
+            </div>
           </div>
           <article class="tl-card">
             <div class="tl-header">
@@ -1884,7 +1945,7 @@
             </div>
             <p class="tl-body">
               Developing a vision–language model that analyzes short-form TikTok video frames
-              to detect &quot;surprise&quot; events that drive user engagement.
+              to detect "surprise" events that drive user engagement.
             </p>
             <ul class="tl-list">
               <li>Designed a temporal–spatial feature pipeline for high-variance short-form video.</li>
@@ -1895,8 +1956,13 @@
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-marker">
-            <div class="tl-marker-inner"></div>
+          <div class="tl-marker-container">
+            <div class="tl-marker">
+              <div class="tl-logo" style="background: linear-gradient(135deg, #a50034, #ff4b6e);">
+                <!-- Replace with: <img src="cmu-logo.png" alt="CMU" style="width:100%;height:100%;object-fit:contain;"/> -->
+                CMU
+              </div>
+            </div>
           </div>
           <article class="tl-card">
             <div class="tl-header">
@@ -1920,8 +1986,13 @@
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-marker">
-            <div class="tl-marker-inner"></div>
+          <div class="tl-marker-container">
+            <div class="tl-marker">
+              <div class="tl-logo" style="background: linear-gradient(135deg, #4a90e2, #357abd);">
+                <!-- Replace with: <img src="mumbai-uni-logo.png" alt="University of Mumbai" style="width:100%;height:100%;object-fit:contain;"/> -->
+                MU
+              </div>
+            </div>
           </div>
           <article class="tl-card">
             <div class="tl-header">
@@ -1945,8 +2016,13 @@
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-marker">
-            <div class="tl-marker-inner"></div>
+          <div class="tl-marker-container">
+            <div class="tl-marker">
+              <div class="tl-logo" style="background: linear-gradient(135deg, #ff6b35, #f7931e);">
+                <!-- Replace with: <img src="iitb-logo.png" alt="IIT Bombay" style="width:100%;height:100%;object-fit:contain;"/> -->
+                IITB
+              </div>
+            </div>
           </div>
           <article class="tl-card">
             <div class="tl-header">
@@ -1970,8 +2046,13 @@
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-marker">
-            <div class="tl-marker-inner"></div>
+          <div class="tl-marker-container">
+            <div class="tl-marker">
+              <div class="tl-logo" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
+                <!-- Replace with: <img src="wondrlab-logo.png" alt="Wondrlab" style="width:100%;height:100%;object-fit:contain;"/> -->
+                WL
+              </div>
+            </div>
           </div>
           <article class="tl-card">
             <div class="tl-header">
@@ -2003,16 +2084,16 @@
       <h2 class="section-title reveal">Get In Touch</h2>
       <p class="section-subtitle reveal">
         Interested in research collaboration, internships, or discussing computer vision & AI systems?
-        I&apos;d love to hear from you.
+        I'd love to hear from you.
       </p>
       <div class="section-divider reveal"></div>
 
       <div class="contact-grid">
         <div class="card contact-meta reveal">
           <p>
-            I&apos;m especially excited about roles and collaborations that sit at the intersection of
+            I'm especially excited about roles and collaborations that sit at the intersection of
             <strong>vision</strong>, <strong>language</strong>, and <strong>scientific data</strong>—
-            whether it&apos;s medical imaging, large-scale perception, or multimodal reasoning.
+            whether it's medical imaging, large-scale perception, or multimodal reasoning.
           </p>
 
           <div class="contact-meta-block">
@@ -2037,9 +2118,9 @@
               <div>
                 <div style="font-weight:600;">Links</div>
                 <div>
-                  <a href="https://github.com/SarahPendhari" target="_blank">GitHub</a> ·
-                  <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank">Google Scholar</a> ·
-                  <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank">LinkedIn</a>
+                  <a href="https://github.com/SarahPendhari" target="_blank" style="color:var(--cmu-red);">GitHub</a> ·
+                  <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank" style="color:var(--cmu-red);">Google Scholar</a> ·
+                  <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" style="color:var(--cmu-red);">LinkedIn</a>
                 </div>
               </div>
             </div>
@@ -2089,7 +2170,7 @@
         <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
       </div>
       <div class="footer-badge">
-        Made with <span class="footer-heart">♥</span> &amp; a lot of gradients · {2025}
+        Made with <span class="footer-heart">♥</span> & a lot of gradients
       </div>
       <div>© <span id="year"></span> Sarah Pendhari · All rights reserved.</div>
     </div>
@@ -2209,10 +2290,14 @@
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         activeFilter = btn.getAttribute('data-filter');
-        filterButtons.forEach(b => b.classList.remove('btn-primary'));
-        filterButtons.forEach(b => (b.style.backgroundColor = '', b.style.color = ''));
-        btn.style.backgroundColor = '#111827';
+        filterButtons.forEach(b => {
+          b.style.backgroundColor = '';
+          b.style.color = '';
+          b.style.borderColor = '';
+        });
+        btn.style.backgroundColor = 'var(--cmu-red)';
         btn.style.color = '#ffffff';
+        btn.style.borderColor = 'var(--cmu-red)';
 
         projectCards.forEach(card => {
           const cat = card.getAttribute('data-category');
@@ -2227,8 +2312,9 @@
 
     // Initialize default button style
     if (filterButtons[0]) {
-      filterButtons[0].style.backgroundColor = '#111827';
+      filterButtons[0].style.backgroundColor = 'var(--cmu-red)';
       filterButtons[0].style.color = '#ffffff';
+      filterButtons[0].style.borderColor = 'var(--cmu-red)';
     }
 
     // Project modal
@@ -2315,7 +2401,7 @@
 
       const mailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`);
       const mailBody = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from sarahpendhari.github.io portfolio.`
+        `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from Sarah Pendhari's portfolio.`
       );
 
       try {
