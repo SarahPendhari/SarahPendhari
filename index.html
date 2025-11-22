@@ -144,35 +144,40 @@
 
     <!-- Project 1 -->
     <tr>
-      <td width="20%">
-        <img src="images/projects/motionscript.png" alt="MotionScript" height="110" width="150">
-      </td>
-      <td width="80%" valign="top">
-        <papertitle>
-          MotionScript: Sign Language to Coherent Text Converter
-        </papertitle>
-        <p>
-          Developed a real-time system using <strong>TensorFlow.js</strong> and <strong>React Native</strong> to translate hand-gesture sequences into meaningful sentences. Implemented pose-keypoint extraction with MediaPipe and a BiLSTM-based language model for context-aware decoding, improving accessibility for the deaf-mute community.
-        </p>
-      </td>
-    </tr>
+  <td width="20%">
+    <img src="images/projects/medvlm_lora.png" alt="MedVLM-LoRA" height="110" width="150">
+  </td>
+  <td width="80%" valign="top">
+    <papertitle>
+      MedVLM-LoRA: Parameter-Efficient Brain Tumor Segmentation with Vision-Language Models
+    </papertitle>
+    <p>
+      Designed a novel medical image segmentation framework that adapts pretrained <strong>Vision-Language Models (VLMs)</strong> to MRI data using <strong>Low-Rank Adaptation (LoRA)</strong>, achieving domain transfer without full re-training. Integrated a <strong>dual-branch global–local architecture</strong> where global features capture anatomical structure while local features specialize in tumor sub-regions (edema, non-enhancing, enhancing core). Implemented a <strong>lightweight cross-attention fusion module</strong> and evaluated on the BraTS dataset to demonstrate improved tumor boundary detection, reduced trainable parameters, and lower memory footprint compared to full fine-tuning and U-Net baselines.
+    </p>
+  </td>
+</tr>
 
-    <!-- Project 2 -->
-    <tr>
-      <td width="20%">
-        <img src="images/projects/docbot.png" alt="DocBot" height="110" width="150">
-      </td>
-      <td width="80%" valign="top">
-        <papertitle>
-          DocBot: Intelligent Disease Prediction Assistant
-        </papertitle>
-        <p>
-          Built a medical assistant using <strong>Python, Tkinter, MySQL, and AWS SageMaker</strong> that predicts probable diseases from user-entered symptoms. Integrated Random Forest and Logistic Regression models, enabling secure record storage and instant recommendations through an interactive desktop interface.
-        </p>
-      </td>
-    </tr>
 
-    <!-- Project 3 -->
+    <!-- Project: CardioCare -->
+<tr>
+  <td width="20%">
+    <img src="images/projects/cardiocare.png" alt="CardioCare" height="110" width="150">
+  </td>
+  <td width="80%" valign="top">
+    <papertitle>
+      CardioCare: Multimodal AI for Cardiac Risk & ECG Diagnosis
+    </papertitle>
+    <p>
+      Developed a multimodal cardiac risk assistant powered by 
+      <strong>Random Forest risk prediction, ECG deep learning, and a fine-tuned medical LLM</strong>.
+      Built a <strong>PubMedBERT-based Q&A model</strong> trained on MEDQA and PubMed corpora for
+      clinically accurate recommendations, and a <strong>CNN-LSTM pipeline</strong> for ECG arrhythmia classification on the <strong>PTB-XL</strong> dataset. Achieved <strong>76.8% EM accuracy</strong> on medical responses and <strong>0.875 AUC</strong> for ECG classification.
+    </p>
+  </td>
+</tr>
+
+
+    <!-- Project 3 
     <tr>
       <td width="20%">
         <img src="images/projects/whatsapp.png" alt="WhatsApp Analyzer" height="110" width="150">
@@ -188,7 +193,7 @@
     </tr>
 
   </tbody>
-</table>
+</table> -->
 
           <!-- RESEARCH -->
           <table>
