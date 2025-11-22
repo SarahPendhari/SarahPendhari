@@ -1,2423 +1,390 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Sarah Pendhari | Computer Vision & AI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Sarah Pendhari — Computer Vision & Deep Learning researcher at Carnegie Mellon University." />
-
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Sarah Pendhari</title>
+  <meta name="author" content="Sarah Penhdari">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <!-- <link rel="icon" type="image/png" href="images/seal_icon.png"> -->
   <style>
-    :root {
-      --cmu-red: #a50034;
-      --cmu-red-dark: #7b0026;
-      --cmu-red-light: #fbe5ec;
-      --bg-light: #f8fafc;
-      --bg-white: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-subtle: #e5e7eb;
-      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
-      --shadow-strong: 0 20px 45px rgba(15, 23, 42, 0.15);
-      --radius-xl: 1.5rem;
-      --radius-lg: 1rem;
-      --transition-fast: 180ms ease-out;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: linear-gradient(135deg, #f9fafb, #ffffff);
-    }
+  background-color: #fff;
+  color: #000;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25 px; /* increased from default (~16px) */
+  line-height: 1.75;
+  margin: 0;
+  padding: 20px;
+}
+
+name {
+  font-size: 2.5em; /* bigger name at the top */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+heading {
+  font-size: 1.6em; /* increase for section titles */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
 
     a {
-      color: inherit;
+      color: #8ab4f8;
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* Layout helpers */
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 5rem 0;
-    }
-
-    @media (min-width: 1024px) {
-      section {
-        padding: 6rem 0;
-      }
-    }
-
-    /* Header / Nav */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-      transition: box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
-    }
-
-    header.scrolled {
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-      border-color: transparent;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-    }
-
-    .nav-logo {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-link {
-      position: relative;
-      padding: 0.5rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #374151;
-      border: 1px solid transparent;
-      cursor: pointer;
-      background: transparent;
-      transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .nav-link:hover {
-      background: #f9fafb;
-      border-color: var(--border-subtle);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.25);
-    }
-
-    .nav-link.active {
-      background: var(--cmu-red);
-      color: #ffffff;
-      border-color: var(--cmu-red);
-      box-shadow: 0 10px 25px rgba(165, 0, 52, 0.35);
-    }
-
-    .nav-social {
-      display: none;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .nav-icon-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      color: #4b5563;
-      background: #ffffff;
-      cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .nav-icon-btn:hover {
-      transform: translateY(-1px);
-      border-color: var(--cmu-red);
-      color: var(--cmu-red);
-      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
-      background: #fff7f9;
-    }
-
-    .nav-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: #ffffff;
-      cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .nav-toggle:hover {
-      transform: translateY(-1px);
-      border-color: var(--cmu-red);
-      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.35);
-    }
-
-    .nav-toggle span,
-    .nav-toggle span::before,
-    .nav-toggle span::after {
-      display: block;
-      width: 18px;
-      height: 2px;
-      border-radius: 999px;
-      background: #111827;
-      position: relative;
-      transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
-    }
-
-    .nav-toggle span::before,
-    .nav-toggle span::after {
-      content: "";
-      position: absolute;
-      left: 0;
-    }
-
-    .nav-toggle span::before {
-      top: -6px;
-    }
-
-    .nav-toggle span::after {
-      top: 6px;
-    }
-
-    .nav-toggle.open span {
-      background: transparent;
-    }
-
-    .nav-toggle.open span::before {
-      transform: translateY(6px) rotate(45deg);
-    }
-
-    .nav-toggle.open span::after {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0 1.5rem 1.25rem;
-      border-top: 1px solid rgba(229, 231, 235, 0.85);
-      background: rgba(255, 255, 255, 0.98);
-    }
-
-    .mobile-nav.open {
-      display: flex;
-    }
-
-    .mobile-link {
-      border-radius: 0.9rem;
-      padding: 0.7rem 0.9rem;
-      border: 1px solid transparent;
-      font-size: 0.97rem;
-      font-weight: 500;
-      color: #374151;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
+    table {
       width: 100%;
-      text-align: left;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .mobile-link:hover {
-      background: #f9fafb;
-      border-color: var(--border-subtle);
-      transform: translateY(-1px);
-    }
-
-    .mobile-link span {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .mobile-social {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.4rem;
-    }
-
-    @media (min-width: 900px) {
-      .nav-links {
-        display: flex;
-      }
-      .nav-social {
-        display: flex;
-      }
-      .nav-toggle {
-        display: none;
-      }
-      .mobile-nav {
-        display: none !important;
-      }
-    }
-
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      padding-top: 6.5rem;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: 0.18;
-      background:
-        radial-gradient(circle at top left, rgba(165, 0, 52, 0.2), transparent 55%),
-        radial-gradient(circle at top right, rgba(248, 113, 113, 0.18), transparent 55%),
-        radial-gradient(circle at bottom, rgba(239, 246, 255, 0.8), transparent 60%);
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 3rem;
-    }
-
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-        align-items: center;
-      }
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(252, 165, 165, 0.8);
-      background: rgba(254, 242, 242, 0.85);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--cmu-red-dark);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cmu-red);
-      box-shadow: 0 0 0 6px rgba(248, 113, 113, 0.35);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    .hero-title {
-      font-size: 2.6rem;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin: 0 0 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 3.4rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero-title {
-        font-size: 3.75rem;
-      }
-    }
-
-    .hero-title span.accent {
-      background: linear-gradient(90deg, var(--cmu-red), #ff4b6e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-typing {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-typing-role {
-      font-weight: 600;
-      color: var(--cmu-red-dark);
-      min-width: 280px;
-    }
-
-    .hero-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.1em;
-      background: var(--cmu-red-dark);
-      animation: blink 1s steps(1) infinite;
-    }
-
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      50.01%, 100% { opacity: 0; }
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 32rem;
-      line-height: 1.6;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.6rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: var(--cmu-red);
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.98rem;
-      cursor: pointer;
-      box-shadow: 0 16px 30px rgba(165, 0, 52, 0.35);
-      transition: transform 160ms ease-out, box-shadow 160ms ease-out, background 160ms ease-out, border-color 160ms ease-out;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      background: var(--cmu-red-dark);
-      border-color: var(--cmu-red-dark);
-      box-shadow: 0 20px 45px rgba(165, 0, 52, 0.45);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.78rem 1.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(156, 163, 175, 0.7);
-      background: rgba(255, 255, 255, 0.9);
-      color: #374151;
-      font-weight: 500;
-      font-size: 0.95rem;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
-    }
-
-    .btn-outline:hover {
-      transform: translateY(-1px);
-      border-color: var(--cmu-red);
-      color: var(--cmu-red-dark);
-      background: #fff7f9;
-      box-shadow: 0 12px 25px rgba(148, 163, 184, 0.4);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: #6b7280;
-    }
-
-    .hero-meta span strong {
-      color: #111827;
-    }
-
-    .hero-right {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-card {
-      width: min(340px, 100%);
-      background: radial-gradient(circle at top, #ffffff, #f9fafb);
-      border-radius: 1.75rem;
-      padding: 1.6rem 1.4rem 1.5rem;
-      box-shadow: var(--shadow-strong);
-      border: 1px solid rgba(229, 231, 235, 0.95);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      background: radial-gradient(circle at top, rgba(165, 0, 52, 0.12), transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .hero-avatar-wrap {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 3px solid #ffffff;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
-      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
-
-    .hero-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-avatar-tag {
-      position: absolute;
-      right: -10px;
-      top: -5px;
-      background: linear-gradient(135deg, var(--cmu-red), #ff4b6e);
-      border-radius: 999px;
-      padding: 0.28rem 0.5rem;
-      font-size: 0.7rem;
-      color: #ffffff;
-      box-shadow: 0 12px 25px rgba(165, 0, 52, 0.45);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      white-space: nowrap;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: #f9fafb;
-      font-size: 0.75rem;
-      color: #4b5563;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-pills {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-card-footer {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-    }
-
-    .hero-card-footer span strong {
-      color: var(--cmu-red-dark);
-    }
-
-    .hero-footer-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 7px rgba(134, 239, 172, 0.6);
-      flex-shrink: 0;
-    }
-
-    /* Section headings */
-    .section-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 32rem;
-      margin: 0 auto 2.5rem;
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    .section-divider {
-      width: 82px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--cmu-red), #fb7185);
-      margin: 0 auto 3rem;
-      opacity: 0.9;
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      gap: 2.5rem;
-    }
-
-    @media (min-width: 900px) {
-      .about-grid {
-        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-        align-items: start;
-      }
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: 2rem;
-    }
-
-    .about-bio p {
-      margin: 0 0 1rem;
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    .about-highlight {
-      margin: 1.1rem 0;
-      padding: 1rem 1.2rem;
-      border-radius: 1rem;
-      background: var(--cmu-red-light);
-      border-left: 4px solid var(--cmu-red);
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .about-highlight span {
-      color: var(--cmu-red-dark);
-      font-weight: 700;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
-
-    .about-stat {
-      padding: 0.9rem 1rem;
-      border-radius: 0.9rem;
-      background: #f9fafb;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      border: 1px solid #e5e7eb;
-    }
-
-    .about-stat-value {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--cmu-red-dark);
-    }
-
-    .about-stat-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #6b7280;
-    }
-
-    .about-avatar-large {
-      position: relative;
-      width: min(320px, 100%);
+      max-width: 800px;
+      border: 0;
+      border-spacing: 0;
+      border-collapse: separate;
       margin: 0 auto;
     }
 
-    .about-avatar-frame {
-      border-radius: 1.75rem;
-      overflow: hidden;
-      border: 3px solid #ffffff;
-      box-shadow: var(--shadow-strong);
-      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    td {
+      padding: 2.5%;
+      vertical-align: middle;
     }
 
-    .about-avatar-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .about-tag {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(17, 24, 39, 0.92);
-      color: #f9fafb;
-      font-size: 0.8rem;
-      padding: 0.45rem 0.7rem;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .about-tag-pill {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .about-tag-right {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      padding: 0.32rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(248, 250, 252, 0.94);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      font-size: 0.8rem;
-      color: #4b5563;
-    }
-
-    /* Projects */
-    #projects {
-      background: #f9fafb;
-    }
-
-    .projects-filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 768px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 1120px) {
-      .projects-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .project-card {
-      border-radius: var(--radius-lg);
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-strong);
-      border-color: rgba(165, 0, 52, 0.5);
-    }
-
-    .project-image {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 300ms ease;
-      filter: saturate(1.1) contrast(1.03);
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.03);
-    }
-
-    .project-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(248, 250, 252, 0.98);
-      color: var(--cmu-red-dark);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.32rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .project-body {
-      padding: 1.15rem 1.3rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      flex: 1;
-    }
-
-    .project-title {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-tag {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      color: #4b5563;
-    }
-
-    .project-link {
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--cmu-red-dark);
-      margin-top: 0.3rem;
-    }
-
-    .project-link span.arrow {
-      transition: transform 160ms ease;
-    }
-
-    .project-card:hover .project-link span.arrow {
-      transform: translateX(2px);
-    }
-
-    /* Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.55);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      z-index: 60;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 200ms ease;
-    }
-
-    .modal-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal {
-      background: #ffffff;
-      color: var(--text-main);
-      border-radius: 1.5rem;
-      border: 1px solid #e5e7eb;
-      max-width: 780px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-strong);
-      transform: translateY(12px) scale(0.97);
-      opacity: 0;
-      transition: transform 220ms ease-out, opacity 220ms ease-out;
-    }
-
-    .modal.open {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1.5rem 1.5rem 1.1rem;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .modal-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .modal-close-btn {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      font-size: 1.4rem;
-      line-height: 1;
-      padding: 0.1rem 0.4rem;
-      border-radius: 999px;
-      color: #6b7280;
-      transition: background 160ms ease, color 160ms ease;
-    }
-
-    .modal-close-btn:hover {
-      background: #f3f4f6;
-      color: #111827;
-    }
-
-    .modal-body {
-      padding: 1.25rem 1.5rem 1.6rem;
-      font-size: 0.96rem;
-    }
-
-    .modal-body p {
-      margin: 0 0 1rem;
-      color: #4b5563;
-      line-height: 1.8;
-    }
-
-    .modal-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .modal-tag {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: var(--cmu-red-light);
-      color: var(--cmu-red-dark);
-      font-weight: 500;
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      padding: 0.65rem 1.3rem;
-      border-radius: 999px;
-      border: 1px solid rgba(156, 163, 175, 0.7);
-      background: #ffffff;
-      color: #111827;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--cmu-red);
-      color: var(--cmu-red-dark);
-      background: #fff7f9;
-      box-shadow: 0 10px 22px rgba(148, 163, 184, 0.35);
-      transform: translateY(-1px);
-    }
-
-    /* Research */
-    .research-grid {
-      display: grid;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 900px) {
-      .research-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .pub-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid #e5e7eb;
-      box-shadow: var(--shadow-soft);
-      padding: 1.4rem 1.5rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .pub-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: flex-start;
-    }
-
-    .pub-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.25rem;
-    }
-
-    .pub-chip {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid #f97373;
-      background: #fef2f2;
-      color: var(--cmu-red-dark);
-      font-weight: 600;
-    }
-
-    .pub-status {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid #bbf7d0;
-      background: #ecfdf3;
-      color: #15803d;
-      font-weight: 600;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .pub-status.pending {
-      border-color: #facc15;
-      background: #fef9c3;
-      color: #854d0e;
-    }
-
-    .pub-title {
-      font-size: 0.96rem;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .pub-meta {
-      font-size: 0.8rem;
-      color: #6b7280;
-    }
-
-    .pub-abstract {
-      font-size: 0.86rem;
-      color: #4b5563;
-      line-height: 1.7;
-    }
-
-    .pub-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.35rem;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      color: #6b7280;
-    }
-
-    .pub-link {
-      font-size: 0.82rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--cmu-red-dark);
-    }
-
-    /* Work Experience */
-    #experience {
-      background: #f9fafb;
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 20px;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: linear-gradient(to bottom, rgba(165, 0, 52, 0.4), rgba(248, 113, 113, 0.05));
-    }
-
-    @media (min-width: 768px) {
-      .timeline::before {
-        left: 26px;
-      }
-    }
-
-    .tl-item {
-      display: flex;
-      gap: 1.2rem;
-      position: relative;
-    }
-
-    .tl-marker-container {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .tl-marker {
-      margin-top: 0.3rem;
-      position: relative;
-      z-index: 1;
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 3px solid #fee2e2;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 18px rgba(165, 0, 52, 0.25);
-      flex-shrink: 0;
-    }
-
-    .tl-logo {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--cmu-red), #ff4b6e);
-      color: white;
-    }
-
-    .tl-card {
-      flex: 1;
-      background: #ffffff;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      box-shadow: var(--shadow-soft);
-      padding: 1.25rem 1.35rem 1.3rem;
-    }
-
-    .tl-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: flex-start;
-      margin-bottom: 0.4rem;
-    }
-
-    .tl-role {
-      font-size: 0.98rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .tl-company {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--cmu-red-dark);
-    }
-
-    .tl-meta {
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 0.15rem;
-    }
-
-    .tl-pill {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: var(--cmu-red-light);
-      color: var(--cmu-red-dark);
-      border: 1px solid rgba(248, 113, 113, 0.7);
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .tl-body {
-      font-size: 0.88rem;
-      color: #4b5563;
-      line-height: 1.7;
-      margin: 0.45rem 0 0.8rem;
-    }
-
-    .tl-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 0.4rem;
-      font-size: 0.86rem;
-      color: #4b5563;
-    }
-
-    .tl-list li::before {
-      content: "•";
-      color: var(--cmu-red);
-      margin-right: 0.4rem;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      gap: 2rem;
-    }
-
-    @media (min-width: 900px) {
-      .contact-grid {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-        align-items: start;
-      }
-    }
-
-    .contact-meta {
-      font-size: 0.95rem;
-      color: #4b5563;
-      line-height: 1.75;
-    }
-
-    .contact-meta-block {
-      margin-top: 1.4rem;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: var(--cmu-red-light);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--cmu-red-dark);
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    form {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: #6b7280;
-      font-weight: 600;
-    }
-
-    input,
-    textarea {
-      font-family: inherit;
-      font-size: 0.95rem;
-      padding: 0.65rem 0.7rem;
-      border-radius: 0.75rem;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
-      color: #111827;
-      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--cmu-red);
-      box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3);
-      background: #fff;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
-
-    .contact-status {
-      font-size: 0.83rem;
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.7rem;
-      margin-top: 0.1rem;
-    }
-
-    .contact-status.success {
-      background: #ecfdf3;
-      color: #166534;
-      border: 1px solid #bbf7d0;
-    }
-
-    .contact-status.error {
-      background: #fef2f2;
-      color: #b91c1c;
-      border: 1px solid #fecaca;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid #e5e7eb;
-      background: #ffffff;
-      padding: 2.5rem 0 2rem;
-    }
-
-    .footer-inner {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #6b7280;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      align-items: center;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 0.6rem;
-      justify-content: center;
-    }
-
-    .footer-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-    }
-
-    .footer-heart {
-      color: #ef4444;
-    }
-
-    /* Scroll-to-top button */
-    .scroll-top {
-      position: fixed;
-      right: 1.3rem;
-      bottom: 1.3rem;
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background: #111827;
-      color: #f9fafb;
-      border: none;
-      display: flex;
-      visibility: hidden;
-      opacity: 0;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
-      transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease, background 160ms ease;
-      z-index: 40;
-    }
-
-    .scroll-top.visible {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .scroll-top:hover {
-      background: var(--cmu-red-dark);
-      transform: translateY(-1px);
-    }
-
-    /* Reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 600ms ease, transform 600ms ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Small tweaks */
-    @media (max-width: 600px) {
-      .hero-subtitle {
-        font-size: 0.95rem;
-      }
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-primary,
-      .btn-outline {
-        width: 100%;
-        justify-content: center;
-      }
-      .hero-typing {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero-typing-role {
-        min-width: auto;
-      }
+    p {
+      margin-bottom: 15px;
     }
   </style>
 </head>
+
 <body>
-  <!-- HEADER -->
-  <header id="site-header">
-    <div class="nav-inner container">
-      <div class="nav-logo" data-scroll="#hero">Sarah Pendhari</div>
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                  <p style="text-align:center">
+                    <name>Sarah Pendhari</name>
+                  </p>
+                <!-- I am currently pursuing a Bachelor’s in Computer Engineering (BE) at Thadomal Shahani Engineering College at Mumbai University, focusing on Computer Vision and Machine Learning.
 
-      <nav class="nav-links">
-        <button class="nav-link" data-scroll="#about">About</button>
-        <button class="nav-link" data-scroll="#projects">Projects</button>
-        <button class="nav-link" data-scroll="#research">Research</button>
-        <button class="nav-link" data-scroll="#experience">Experience</button>
-        <button class="nav-link" data-scroll="#contact">Contact</button>
-      </nav>
+In January 2022, I worked as a Research Intern at M.H. Saboo Siddik College of Engineering, developing ColorViTGAN, a state-of-the-art image colorization model using Vision Transformers and CycleGAN.
 
-      <div class="nav-social">
-        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
-        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
-        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
-      </div>
+In the summer of 2024, I was a Research Intern at IIT Bombay, where I developed IoT-based lake monitoring systems and improved satellite imagery quality using advanced image processing techniques.
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-      </button>
-    </div>
+From July to September 2024, I worked as a Software Engineer Fellow at Headstarter AI, building BuzzBot, an AI-powered customer support chatbot with advanced features like multi-language support and real-time feedback.
 
-    <div class="mobile-nav" id="mobile-nav">
-      <button class="mobile-link" data-scroll="#about">
-        About <span>who I am</span>
-      </button>
-      <button class="mobile-link" data-scroll="#projects">
-        Projects <span>things I built</span>
-      </button>
-      <button class="mobile-link" data-scroll="#research">
-        Research <span>publications</span>
-      </button>
-      <button class="mobile-link" data-scroll="#experience">
-        Experience <span>work history</span>
-      </button>
-      <button class="mobile-link" data-scroll="#contact">
-        Contact <span>say hello</span>
-      </button>
+In the summer of 2023, I interned at Wondrlab India Pvt. Ltd., optimizing EDA and web scraping pipelines to improve efficiency by 9.2%. -->
+                  <p>
+  I’m a first-year Master’s student in Computer Vision (MSCV) at 
+  <a href="https://www.ri.cmu.edu/">CMU’s Robotics Institute</a>, 
+  part of the <a href="https://www.cmu.edu/scs/">School of Computer Science</a>. 
+  My research interests lie at the intersection of Computer Vision and Machine Learning.
+</p>
 
-      <div class="mobile-social">
-        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
-        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
-        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
-      </div>
-    </div>
-  </header>
+<p>
+  I’ve interned at <a href="https://www.iitb.ac.in/">IIT Bombay</a> (IoT-based lake monitoring, satellite image enhancement), 
+  <a href="https://headstarter.co/">Headstarter AI</a> (AI chatbot development), and 
+  <a href="https://wondrlab.com/">Wondrlab India</a> (optimizing EDA and web scraping pipelines). 
+  I also developed <a href="https://www.mhssce.ac.in/">ColorViTGAN</a> during a research internship at 
+  M.H. Saboo Siddik College of Engineering, a state-of-the-art image colorization model using Vision Transformers and CycleGAN.
+</p>
 
-  <!-- HERO -->
-  <main id="hero" class="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-grid">
-      <div class="hero-left reveal">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          MS in Computer Vision · Carnegie Mellon University
-        </div>
+<p>
+  I hold a Bachelor’s in Computer Engineering from 
+  <a href="https://tsec.edu/">Thadomal Shahani Engineering College</a>, 
+  affiliated with <a href="https://mu.ac.in/">Mumbai University</a>.
+</p>
 
-        <h1 class="hero-title">
-          Building <span class="accent">reliable AI systems</span>
-          for vision, health, and multimodal understanding.
-        </h1>
 
-        <div class="hero-typing">
-          <span>I'm a</span>
-          <span class="hero-typing-role" id="typing-role"></span>
-          <span class="hero-cursor"></span>
-        </div>
 
-        <p class="hero-subtitle">
-          I work at the intersection of computer vision, deep learning, and multimodal AI—
-          from cryo-electron tomography and medical imaging to behavior understanding in short-form video.
-        </p>
-
-        <div class="hero-buttons">
-          <button class="btn-primary" data-scroll="#projects">
-            View My Work
-            <span>↘</span>
-          </button>
-          <button class="btn-outline" onclick="window.open('https://sarahpendhari.github.io/SarahPendhari/data/Sarah_Pendhari.pdf', '_blank')">
-            Download CV
-          </button>
-        </div>
-
-        <div class="hero-meta">
-          <span><strong>Research:</strong> CMU Tepper · Xu Lab</span>
-          <span><strong>Interests:</strong> Vision-Language, Diffusion Models, Medical AI</span>
-        </div>
-      </div>
-
-      <div class="hero-right reveal">
-        <div class="hero-card">
-          <div class="hero-avatar-wrap">
-            <div class="hero-avatar">
-              <!-- Replace with: <img src="your-photo.jpg" alt="Sarah Pendhari" /> -->
-              👤
-            </div>
-            <div>
-              <div style="font-weight:700;">Sarah Pendhari</div>
-              <div style="font-size:0.85rem;color:#6b7280;">Computer Vision & AI Researcher</div>
-              <div style="font-size:0.8rem;color:#9ca3af;margin-top:0.15rem;">
-                CMU · School of Computer Science
-              </div>
-            </div>
-            <div class="hero-avatar-tag">
-              <span style="font-size:0.8rem;">🏆</span> 2× Best Paper
-            </div>
-          </div>
-
-          <div class="hero-pills">
-            <div class="hero-pill">🧠 Vision–Language Modeling</div>
-            <div class="hero-pill">🧬 Cryo-ET & Medical Imaging</div>
-            <div class="hero-pill">🧪 Diffusion & Few-Shot Learning</div>
-          </div>
-
-          <div class="hero-card-footer">
-            <span>Actively seeking <strong>Summer 2026</strong> internships.</span>
-            <div class="hero-footer-dot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title reveal">About Me</h2>
-      <p class="section-subtitle reveal">
-        I'm a graduate student in Computer Vision at Carnegie Mellon University, building data-efficient,
-        robust models for real-world visual and multimodal problems.
-      </p>
-      <div class="section-divider reveal"></div>
-
-      <div class="about-grid">
-        <div class="card about-bio reveal">
-          <p>
-            Hi, I'm <strong>Sarah Pendhari</strong>, a Master of Science in Computer Vision student at
-            <strong>Carnegie Mellon University</strong>. My research spans computer vision, deep learning,
-            and multimodal AI, with a strong focus on data-efficient learning and robust model design.
-          </p>
-          <p>
-            I've worked across domains including <strong>cryo-electron tomography</strong>,
-            <strong>image colorization</strong>, <strong>medical imaging</strong>, and
-            <strong>short-form video analysis</strong>. My previous work includes hybrid
-            Vision Transformer–GAN architectures, attention-enhanced few-shot models,
-            and real-time perception systems.
-          </p>
-
-          <div class="about-highlight">
-            🎯 I'm currently looking for <span>Summer 2026 internships</span> in
-            <strong>Computer Vision</strong>, <strong>Machine Learning</strong>, and
-            <strong>Applied AI Research</strong>.
-          </div>
-
-          <p>
-            I enjoy working with large, noisy datasets; training computationally intensive deep learning models;
-            and turning research ideas into well-engineered systems. Lately, I've been especially excited
-            about <strong>vision–language models</strong>, <strong>diffusion architectures</strong>, and
-            <strong>multimodal learning</strong>.
-          </p>
-
-          <div class="about-stats">
-            <div class="about-stat">
-              <div class="about-stat-value">14+</div>
-              <div class="about-stat-label">Projects</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-value">2</div>
-              <div class="about-stat-label">Best Paper Awards</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-value">2</div>
-              <div class="about-stat-label">IEEE Conferences</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-value">20+</div>
-              <div class="about-stat-label">Technologies</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-avatar-large reveal">
-          <div class="about-avatar-frame">
-            <!-- Replace with: <img src="cmu-campus.jpg" alt="Carnegie Mellon University" /> -->
-            <div style="font-size:4rem;">🎓</div>
-          </div>
-          <div class="about-tag">
-            <span class="about-tag-pill"></span>
-            Open to AI Research Internships — 2026
-          </div>
-          <div class="about-tag-right">
-            MS in Computer Vision · CMU
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title reveal">Featured Projects</h2>
-      <p class="section-subtitle reveal">
-        A curated selection of my most impactful computer vision and AI work—from hybrid transformers to
-        few-shot medical models and real-time assistive systems.
-      </p>
-      <div class="section-divider reveal"></div>
-
-      <div class="projects-filters reveal">
-        <button class="btn-outline" data-filter="All">All</button>
-        <button class="btn-outline" data-filter="Computer Vision">Computer Vision</button>
-        <button class="btn-outline" data-filter="Deep Learning">Deep Learning</button>
-        <button class="btn-outline" data-filter="Medical AI">Medical AI</button>
-      </div>
-
-      <div class="projects-grid">
-        <article class="project-card reveal" data-category="Deep Learning" data-project="1">
-          <div class="project-image">
-            <!-- Replace with: <img src="colorvitgan.png" alt="ColourViTGAN" /> -->
-            🎨
-            <span class="project-badge">Best Paper</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">
-              ColourViTGAN — Hybrid Vision Transformer + CycleGAN Colorization
-            </h3>
-            <p class="project-desc">
-              Hybrid ViT–CycleGAN framework achieving 22.7 PSNR & 0.982 SSIM.
-              Combines attention-based semantics with adversarial chrominance modeling.
-              Published at IEEE ICUIS 2024 (Best Paper).
+                  <p style="text-align:center">
+                    <a href="mailto:sarahpendhari@gmail.com">Email</a> &nbsp|&nbsp
+                    <a href="data\Sarah_Pendhari.pdf">CV</a> &nbsp|&nbsp
+                    <!-- <a href="https://scholar.google.com/">Google Scholar</a> &nbsp|&nbsp -->
+                    <a href="https://www.linkedin.com/in/sarah-pendhari/">Linkedin</a>
+                  </p>
+                </td>
+                <td style="padding:2.5%;width:40%;max-width:40%">
+                  <img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo"
+                    src="images/Sarah.jpg" class="hoverZoomLink">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="100%" align="center" border="0" cellpadding="10">
+    <!--
+    </tbody>
+    <tr>
+    </td>
+    <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
+      <a href="https://outlier.ai/"><img src="images/experience/outlier.jpeg" width="90%"></a>
+      <p style="line-height:1.3;"><a href="https://outlier.ai/">Outlier AI</a><br>Freelance AI Contractor<br>Oct 2024 - Present</p>
+    </td>
+    <td align="center" width="12%" style="vertical-align: middle; background-color: rgb(255, 255, 255)">
+      <a href="https://www.mhssce.ac.in/"><img src="images/experience/Mhsscoe_3.png" width="90%"></a>
+      <p style="line-height:1.3;"><a href="https://www.mhssce.ac.in/">M.H. Saboo Siddik College of Engineering</a><br>Research Intern<br>Jan 2022 - Present</p>
+    </td>
+    <td align="center" width="12%" style="vertical-align: middle; background-color: rgb(255, 255, 255)">
+      <a href="https://www.iitb.ac.in/"><img src="images/experience/Indian_Institute_of_Technology_Bombay_Logo.svg.png" width="90%"></a>
+      <p style="line-height:1.3;"><a href="https://www.iitb.ac.in/">IIT Bombay</a><br>Summer Intern<br>Jun 2024 - Aug 2024</p>
+    </td>
+    </tr>
+    <tr>
+      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
+        <a href="https://headstarter.co/"><img src="images/experience/channels4_profile.jpg" width="90%"></a>
+        <p style="line-height:1.3;"><a href="https://headstarter.co/">Headstarter AI</a>
+            <br>SWE Fellow<br>Jul 2024 - Sept 2024</p>
+        </td>
+      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
+        <a href="https://wondrlab.com/"><img src="images/experience/Wondrlab.png" width="90%"></a>
+        <p style="line-height:1.3;"><a href="https://wondrlab.com/">Wondrlab India Pvt.Ltd.</a><br>SWE Intern<br>Jun 2023 - Sept 2023</p>
+      </td>
+      <td align="center" width="12%" style="vertical-align: middle; background-color: rgba(255, 255, 255, 1)">
+        <a href="https://gdg.community.dev/gdg-on-campus-thadomal-shahani-engineering-college-mumbai-india/"><img src="images/experience/gdsc.png" width="90%"></a>
+        <p style="line-height:1.3;"><a href="https://gdg.community.dev/gdg-on-campus-thadomal-shahani-engineering-college-mumbai-india/">Google Student Developer Clubs</a><br>Senior Core Team<br>Aug 2022 - Aug 2024</p>
+    </tr>
+  </table>
+-->
+    <!-- RESEARCH -->
+    <table
+      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr>
+          <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Research</heading>
+            <p>
+              <!-- Enter about research interested in -->
             </p>
-            <div class="project-tags">
-              <span class="project-tag">Vision Transformer</span>
-              <span class="project-tag">CycleGAN</span>
-              <span class="project-tag">PyTorch</span>
-              <span class="project-tag">Image Colorization</span>
-            </div>
-            <div class="project-link">
-              <span>Learn more</span>
-              <span class="arrow">↗</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="Medical AI" data-project="2">
-          <div class="project-image">
-            <!-- Replace with: <img src="fewshot-dr.png" alt="Few-shot microaneurysm detection" /> -->
-            👁️
-            <span class="project-badge">Few-Shot</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">
-              Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection
-            </h3>
-            <p class="project-desc">
-              Dual-attention prototypical network for microaneurysm detection scoring
-              0.947 AUC & 0.915 F1 on IDRiD. Published at IEEE IATMSI 2025 (Best Paper).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table
+      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr>
+          <td width='20%'><img src='images/research/DR.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection in Diabetic Retinopathy
+              Images - IEEE (IATMSI 2025)</papertitle>
+              <br>
+            <a
+              href="https://ieeexplore.ieee.org/document/10985676">[pdf]</a><br>
+            <a
+              href="https://drive.google.com/file/d/1NxQv2qPe8-NiGhw7skEphyfB58wQJElU/view?usp=sharing">[Best Paper Award Certificate]</a>
+            <p></p>
+            <p>
+              Early detection of microaneurysms in diabetic retinopathy (DR) is critical for preventing vision loss but 
+              remains challenging due to limited labeled data and subtle lesion features. This study introduces a few-shot 
+              learning model integrating dual attention mechanisms with prototypical networks to address these challenges. 
+              Enhanced with spatial and channel attention modules, our modified ResNet-50 backbone achieves precise localization 
+              and adaptive feature weighting. 
             </p>
-            <div class="project-tags">
-              <span class="project-tag">Few-Shot Learning</span>
-              <span class="project-tag">ResNet-50</span>
-              <span class="project-tag">Attention</span>
-              <span class="project-tag">Medical Imaging</span>
-            </div>
-            <div class="project-link">
-              <span>Learn more</span>
-              <span class="arrow">↗</span>
-            </div>
-          </div>
-        </article>
+          </td>
+        </tr>
 
-        <article class="project-card reveal" data-category="Computer Vision" data-project="3">
-          <div class="project-image">
-            <!-- Replace with: <img src="visionguard.png" alt="VisionGuard" /> -->
-            👓
-            <span class="project-badge">Real-Time</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">VisionGuard — Real-Time Object Detection Assistant</h3>
-            <p class="project-desc">
-              Edge-optimized YOLOv8 system for assisting visually impaired users with audio cues.
-              Low latency ONNX Runtime deployment and full edge-device pipeline.
+         <tr>
+          <td width='20%'><img src='images/research/colorvitgan.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>ColourViTGAN: A Hybridised Approach Using Vision Transformers and CycleGAN to Add Color to
+              Greyscale Images - IEEE (ICEC 2024) </papertitle>
+            <br>
+            <a
+              href="https://ieeexplore.ieee.org/document/10837458">[pdf]</a><br>
+            <a
+              href="https://drive.google.com/file/d/1J6A2YTZ1rsUU4q5PmczsBlBaw-q84XuA/view?usp=sharing">[Best Paper Award Certificate]</a>
+            <p></p>
+            <p>
+              ColourViTGAN is a novel hybrid approach combining Vision Transformers (ViTs) and CycleGANs to achieve superior 
+              image recolorization for grayscale inputs. By integrating ViTs into both the generator and discriminator, 
+              the model captures long-range dependencies while preserving local details. Custom perceptual loss functions 
+              and advanced regularization techniques further enhance stability and performance. ColourViTGAN surpasses 
+              state-of-the-art models like Pix2Pix and ChromaGAN in terms of PSNR, SSIM, and LPIPS.
             </p>
-            <div class="project-tags">
-              <span class="project-tag">YOLOv8</span>
-              <span class="project-tag">ONNX Runtime</span>
-              <span class="project-tag">Real-Time Detection</span>
-              <span class="project-tag">OpenCV</span>
-            </div>
-            <div class="project-link">
-              <span>Learn more</span>
-              <span class="arrow">↗</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+          </td>
+        </tr>
 
-  <!-- PROJECT MODAL -->
-  <div class="modal-backdrop" id="project-modal-backdrop" aria-hidden="true">
-    <div class="modal" id="project-modal">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">Project title</h3>
-        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">×</button>
-      </div>
-      <div class="modal-body">
-        <p id="modal-description"></p>
-        <div class="modal-tags" id="modal-tags"></div>
-        <div id="modal-extra"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="container">
-      <h2 class="section-title reveal">Research & Publications</h2>
-      <p class="section-subtitle reveal">
-        Selected work at the intersection of deep learning, medical imaging, and generative models.
-      </p>
-      <div class="section-divider reveal"></div>
-
-      <div class="research-grid">
-        <article class="pub-card reveal">
-          <div class="pub-header">
-            <div>
-              <div class="pub-title">
-                Advanced Neural Network-Based Color Transformation for Enhanced Visual Perception
-                in Tritanopia Using Deep Learning Algorithms
-              </div>
-              <div class="pub-meta">
-                <strong>Authors:</strong> S. Pendhari, N. Pendhari · <strong>Type:</strong> Journal (Under Review)
-              </div>
-              <div class="pub-chip-row">
-                <span class="pub-chip">Color Vision Deficiency</span>
-                <span class="pub-chip">Deep Learning</span>
-              </div>
-            </div>
-            <span class="pub-status pending">Under Review</span>
-          </div>
-          <p class="pub-abstract">
-            This work introduces a deep learning system that improves color perception for individuals
-            with Tritanopia using adaptive neural color transformations. It benchmarks CNNs, GANs,
-            and transformer-based models for perceptual enhancement.
-          </p>
-          <div class="pub-footer">
-            <span>Taylor & Francis · 2025</span>
-            <span style="opacity:0.7;">Link available upon acceptance</span>
-          </div>
-        </article>
-
-        <article class="pub-card reveal">
-          <div class="pub-header">
-            <div>
-              <div class="pub-title">
-                Benchmarking Deep Learning Models for Automated MRI-based Brain Tumor Detection
-              </div>
-              <div class="pub-meta">
-                <strong>Author:</strong> S. Pendhari · International Journal of Computer Applications (IJCA)
-              </div>
-              <div class="pub-chip-row">
-                <span class="pub-chip">CNN</span>
-                <span class="pub-chip">ResNet</span>
-                <span class="pub-chip">Medical Imaging</span>
-              </div>
-            </div>
-            <span class="pub-status">Published</span>
-          </div>
-          <p class="pub-abstract">
-            A comprehensive benchmark of CNN, VGG16, VGG19, ResNet-50, MobileNet, and InceptionV3 for
-            MRI-based brain tumor classification. The study explores accuracy vs. inference-time trade-offs
-            for deployment-ready clinical workflows.
-          </p>
-          <div class="pub-footer">
-            <span>IJCA · Nov 2024</span>
-            <a class="pub-link" href="https://www.ijcaonline.org/archives/volume186/number50/benchmarking-deep-learning-models-for-automated-mri-based-brain-tumor-detection-in-depth-analysis-of-cnn-vgg16-vgg19-resnet-50-mobilenet-and-inceptionv3/" target="_blank">
-              View paper ↗
-            </a>
-          </div>
-        </article>
-
-        <article class="pub-card reveal">
-          <div class="pub-header">
-            <div>
-              <div class="pub-title">
-                ColorViTAN: A Hybridised Vision Transformer and CycleGAN Approach to Add Color to Greyscale Images
-              </div>
-              <div class="pub-meta">
-                <strong>Authors:</strong> S. Pendhari, N. Pendhari · IEEE ICUIS 2024 · Best Paper Award
-              </div>
-              <div class="pub-chip-row">
-                <span class="pub-chip">Vision Transformer</span>
-                <span class="pub-chip">CycleGAN</span>
-                <span class="pub-chip">Image Colorization</span>
-              </div>
-            </div>
-            <span class="pub-status">Published</span>
-          </div>
-          <p class="pub-abstract">
-            Introduces a hybrid ViT–CycleGAN architecture for image colorization, achieving 22.7 PSNR and
-            0.982 SSIM by combining global semantic reasoning with local chrominance reconstruction.
-          </p>
-          <div class="pub-footer">
-            <span>IEEE ICUIS · 2024</span>
-            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10837458" target="_blank">
-              View paper ↗
-            </a>
-          </div>
-        </article>
-
-        <article class="pub-card reveal">
-          <div class="pub-header">
-            <div>
-              <div class="pub-title">
-                Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection
-                in Diabetic Retinopathy Images
-              </div>
-              <div class="pub-meta">
-                <strong>Author:</strong> S. Pendhari · IEEE IATMSI 2025 · Best Paper Award
-              </div>
-              <div class="pub-chip-row">
-                <span class="pub-chip">Few-Shot Learning</span>
-                <span class="pub-chip">Attention</span>
-                <span class="pub-chip">Diabetic Retinopathy</span>
-              </div>
-            </div>
-            <span class="pub-status">Published</span>
-          </div>
-          <p class="pub-abstract">
-            Proposes a dual-attention prototypical network for microaneurysm detection under extreme label scarcity,
-            achieving 0.947 AUC-ROC and 0.915 F1 on the IDRiD dataset.
-          </p>
-          <div class="pub-footer">
-            <span>IEEE IATMSI · 2025</span>
-            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/10985676" target="_blank">
-              View paper ↗
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title reveal">Work Experience</h2>
-      <p class="section-subtitle reveal">
-        Research and industry roles where I've shipped models, pipelines, and systems—
-        from academic labs to startup environments.
-      </p>
-      <div class="section-divider reveal"></div>
-
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-marker-container">
-            <div class="tl-marker">
-              <div class="tl-logo" style="background: linear-gradient(135deg, #a50034, #ff4b6e);">
-                <!-- Replace with: <img src="cmu-logo.png" alt="CMU" style="width:100%;height:100%;object-fit:contain;"/> -->
-                CMU
-              </div>
-            </div>
-          </div>
-          <article class="tl-card">
-            <div class="tl-header">
-              <div>
-                <div class="tl-role">Graduate Research Assistant — Vision-Language Modeling</div>
-                <div class="tl-company">CMU Tepper School of Business · Pittsburgh, PA</div>
-                <div class="tl-meta">Nov 2025 — Present</div>
-              </div>
-              <span class="tl-pill">Research Assistant</span>
-            </div>
-            <p class="tl-body">
-              Developing a vision–language model that analyzes short-form TikTok video frames
-              to detect "surprise" events that drive user engagement.
+        <tr>
+          <td width='20%'><img src='images/research/brain.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>Benchmarking Deep Learning Models for Automated MRI-based Brain Tumor Detection: In-Depth Analysis
+              of CNN, VGG16, VGG19, ResNet-50, MobileNet, and InceptionV3 - IJCA</papertitle>
+            <br>
+            <a
+              href="https://www.ijcaonline.org/archives/volume186/number50/pendhari-2024-ijca-924233.pdf">[pdf]</a>
+            <p></p>
+            <p>
+              Early and accurate diagnosis of brain tumors is critical for effective treatment and improved survival rates.
+               While MRI scans are invaluable non-invasive tools, their manual interpretation is labor-intensive due to the 
+               complexity of 3D imaging. This study leverages cutting-edge deep learning models—CNN, VGG16, VGG19, ResNet-50, 
+               MobileNet, and InceptionV3—to automate brain tumor detection, achieving remarkable accuracy scores: CNN (97.55%), 
+               VGG16 (97.96%), and InceptionV3 (97.55%)
+               patient outcomes.
             </p>
-            <ul class="tl-list">
-              <li>Designed a temporal–spatial feature pipeline for high-variance short-form video.</li>
-              <li>Implemented self-supervised contrastive learning to stabilize surprise sequence predictions.</li>
-              <li>Collaborating with behavioral science faculty to quantify attention signals in media.</li>
-            </ul>
-          </article>
-        </div>
+          </td>
+        </tr>
+      
 
-        <div class="tl-item reveal">
-          <div class="tl-marker-container">
-            <div class="tl-marker">
-              <div class="tl-logo" style="background: linear-gradient(135deg, #a50034, #ff4b6e);">
-                <!-- Replace with: <img src="cmu-logo.png" alt="CMU" style="width:100%;height:100%;object-fit:contain;"/> -->
-                CMU
-              </div>
-            </div>
-          </div>
-          <article class="tl-card">
-            <div class="tl-header">
-              <div>
-                <div class="tl-role">Graduate Research Assistant — Cryo-ET & Diffusion Models</div>
-                <div class="tl-company">CMU Xu Lab · School of Computer Science</div>
-                <div class="tl-meta">Oct 2025 — Present · Pittsburgh, PA</div>
-              </div>
-              <span class="tl-pill">Research Assistant</span>
-            </div>
-            <p class="tl-body">
-              Working on DUAL, an unsupervised framework for cryo-electron tomography that jointly
-              denoises 3D cellular volumes and synthesizes realistic training data.
+        <tr>
+          <td width='20%'><img src='images/research/Tf.png' alt='pose' style='border-style: none' height='110' width='150'>
+          </td>
+          <td valign='top' width='80%'>
+            <papertitle>Advanced Neural Network-Based Color Transformation for Enhanced Visual Perception in Tritanopia Using
+              Deep Learning Algorithms - Taylor and Francis </papertitle>
+            <br>
+            <p>
+              This study addresses the challenges of color vision deficiencies, particularly tritanopia, 
+              by proposing an innovative image transformation approach to enhance color perception. 
+              Using convolutional autoencoders, our method converts blue hues into indigo shades, making
+               them more distinguishable for individuals with tritanopia. Training on a specialized dataset 
+               derived from COCO2017, we optimize for accuracy, precision, and perceptual fidelity using TensorFlow 
+               and Keras. 
             </p>
-            <ul class="tl-list">
-              <li>Implemented a modified CycleDiffusion architecture with noise disentanglement.</li>
-              <li>Improved synthetic tomogram realism using 3D diffusion priors.</li>
-              <li>Accelerated denoising by 18% via kernel-level optimization and mixed precision.</li>
-            </ul>
-          </article>
-        </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-        <div class="tl-item reveal">
-          <div class="tl-marker-container">
-            <div class="tl-marker">
-              <div class="tl-logo" style="background: linear-gradient(135deg, #4a90e2, #357abd);">
-                <!-- Replace with: <img src="mumbai-uni-logo.png" alt="University of Mumbai" style="width:100%;height:100%;object-fit:contain;"/> -->
-                MU
-              </div>
-            </div>
-          </div>
-          <article class="tl-card">
-            <div class="tl-header">
-              <div>
-                <div class="tl-role">Research Intern — Vision Transformers & GANs</div>
-                <div class="tl-company">University of Mumbai · Computer Engineering Dept.</div>
-                <div class="tl-meta">Jan 2025 — Mar 2025 · Mumbai, India</div>
-              </div>
-              <span class="tl-pill">Research Internship</span>
-            </div>
-            <p class="tl-body">
-              Worked under Prof. Nazneen Pendhari on state-of-the-art colorization and medical
-              few-shot learning systems.
+    <!-- PROJECTS -->
+<!---
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr>
+          <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Projects</heading>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr>
+          <td width='20%'><img src='images/projects/capstone-teaser.png' alt='pose' style='border-style: none' height='75'
+            width='150'></td>
+          <td valign='top' width='80%'>
+            <papertitle>Dynamic reconstruction of non-rigid scenes from monocular RGB-D videos</papertitle>
+            <br>
+            <a href="https://mscvprojects.ri.cmu.edu/2024team3/">[project page]</a>
+            <p></p>
+            <p>
+              Instead of using complex camera systems, the goal is to simplify avatar creation by only using smartphone data with rgb-d sensors which can profoundly enhance the scalability and adoption of avatars. We propose a novel method for dynamic 3D reconstruction focusing on non-rigidly deforming scenes captured by RGBD sensors.
             </p>
-            <ul class="tl-list">
-              <li>Developed ColourViTGAN achieving 22.7 PSNR vs 20.5 baseline (0.982 SSIM, 0.224 LPIPS).</li>
-              <li>Published at IEEE ICUIS 2024 — Best Paper Award.</li>
-              <li>Built attention-enhanced prototypical networks achieving 0.947 AUC-ROC on IDRiD (IEEE IATMSI 2025, Best Paper).</li>
-            </ul>
-          </article>
-        </div>
+          </td>
+        </tr>
 
-        <div class="tl-item reveal">
-          <div class="tl-marker-container">
-            <div class="tl-marker">
-              <div class="tl-logo" style="background: linear-gradient(135deg, #ff6b35, #f7931e);">
-                <!-- Replace with: <img src="iitb-logo.png" alt="IIT Bombay" style="width:100%;height:100%;object-fit:contain;"/> -->
-                IITB
-              </div>
-            </div>
-          </div>
-          <article class="tl-card">
-            <div class="tl-header">
-              <div>
-                <div class="tl-role">Summer Research Intern — IoT & Time-Series Forecasting</div>
-                <div class="tl-company">IIT Bombay · Centre of Studies in Resources Engineering</div>
-                <div class="tl-meta">Jun 2024 — Aug 2024 · Mumbai, India</div>
-              </div>
-              <span class="tl-pill">Research Internship</span>
-            </div>
-            <p class="tl-body">
-              Developed an end-to-end environmental monitoring pipeline with IoT sensors, LoRa, and
-              micro-climate forecasting.
+        <tr>
+          <td width='20%'><img src='images/projects/gauss-craft.png' alt='pose' style='border-style: none' height='75'
+            width='150'></td>
+          <td valign='top' width='80%'>
+            <papertitle>GaussCraft: Language Driven Segmentation and Editing in 3D Using Gaussian Splatting</papertitle>
+            <br>
+            <a href="https://docs.google.com/presentation/d/1S9l76E-eZMoOTlmTm9fb9kvganE_zCvySWfclire99o/edit?usp=sharing">[poster]</a>
+            <p></p>
+            <p>
+              We streamline 3D asset creation by editing existing scenes, reducing complexity and time. While NeRF offers detailed rendering, it's hard to manipulate. Instead, 3D Gaussian Splatting enables real-time rendering, simplifying tasks. Our architecture integrates vision language, allowing language-driven editing of visual properties. This bridges the gap between language understanding and 3D scene editing, enhancing workflows.
             </p>
-            <ul class="tl-list">
-              <li>Built ESP32–LoRa data acquisition capturing 10K+ readings per day.</li>
-              <li>Integrated real-time dashboards with Firebase and ThingsBoard.</li>
-              <li>Improved forecasting accuracy by 32.3% over baselines.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="tl-item reveal">
-          <div class="tl-marker-container">
-            <div class="tl-marker">
-              <div class="tl-logo" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">
-                <!-- Replace with: <img src="wondrlab-logo.png" alt="Wondrlab" style="width:100%;height:100%;object-fit:contain;"/> -->
-                WL
-              </div>
-            </div>
-          </div>
-          <article class="tl-card">
-            <div class="tl-header">
-              <div>
-                <div class="tl-role">Software Developer Intern — ML Pipelines & Web Scraping</div>
-                <div class="tl-company">Wondrlab India Pvt. Ltd.</div>
-                <div class="tl-meta">Jun 2023 — Sep 2023 · Mumbai, India</div>
-              </div>
-              <span class="tl-pill">Industry Internship</span>
-            </div>
-            <p class="tl-body">
-              Worked on high-volume ETL pipelines, scraping infrastructure, and analytics dashboards
-              for media intelligence.
+          </td>
+        </tr>
+       
+        <tr>
+          <td width='20%' align="center"><img src='images/projects/squirrel_coffee_w_temporal.gif' alt='pose' style='border-style: none' height='100'
+            width='100'></td>
+          <td valign='top' width='80%'>
+            <papertitle>GIF-Tune: One-Shot Tuning for Continuous Text-to-GIF Synthesis</papertitle>
+            <br>
+            <a href="https://www.andrew.cmu.edu/course/16-726-sp24/projects/anishaja/project/">[project page]</a>
+            <p></p>
+            <p>
+              Our methodology can work with any text-to-image (T2I) diffusion architectures pre-trained on large image dataset. We introduce a spatiotemporal attention and background regularization techniques along with one-shot tuning strategy within our "GIF-Tune" model for temporally coherent and depth-consistent GIFs.
             </p>
-            <ul class="tl-list">
-              <li>Optimized Airflow-based ETL pipelines, improving throughput by 9.2%.</li>
-              <li>Developed scalable Selenium + asyncio scraping for high-concurrency workloads.</li>
-              <li>Built Plotly dashboards with MongoDB-backed analytics.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+          </td>
+        </tr>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title reveal">Get In Touch</h2>
-      <p class="section-subtitle reveal">
-        Interested in research collaboration, internships, or discussing computer vision & AI systems?
-        I'd love to hear from you.
-      </p>
-      <div class="section-divider reveal"></div>
+        <tr>
+          <td width='20%'><img src='images/projects/curios_entropy.png' alt='pose' style='border-style: none' height='75'
+              width='150'></td>
+          <td valign='top' width='80%'>
+            <papertitle>Curiosity & Entropy Driven Unsupervised RL in Multiple Environments</papertitle>
+            <br>
+            <a href="https://arxiv.org/abs/2401.04198">[arVix]</a>
+            <a
+              href="https://docs.google.com/presentation/d/1Xc26eU-Ou0IyV--JCwlJKKHmnM6Fx_aNEFaNUr6Qfkg/edit?usp=sharing">[slides]</a>
+            <p></p>
+            <p>
+              Alpha-MEPOL method for unsupervised RL in multiple environments achieves enhanced performance with dynamic
+              alpha and a higher KL-Divergence threshold. Curiosity-driven exploration proves effective in
+              high-dimensional environments, fostering diverse experiences and improving learning outcomes. Our
+              experiments confirm positive results, highlighting the effectiveness of these modifications in the current
+              context.
+            </p>
+          </td>
+        </tr>
 
-      <div class="contact-grid">
-        <div class="card contact-meta reveal">
-          <p>
-            I'm especially excited about roles and collaborations that sit at the intersection of
-            <strong>vision</strong>, <strong>language</strong>, and <strong>scientific data</strong>—
-            whether it's medical imaging, large-scale perception, or multimodal reasoning.
-          </p>
+      </tbody>
+    </table>
+  -->
 
-          <div class="contact-meta-block">
-            <div class="contact-row">
-              <div class="contact-icon">✉</div>
-              <div>
-                <div style="font-weight:600;">Email</div>
-                <div>spendhar@andrew.cmu.edu</div>
-              </div>
-            </div>
+    <!-- NEWS UPDATES -->
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tbody>
+        <tr>
+          <td>
+            <heading>News Updates</heading>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>[Aug 2025]</strong> Joined CMU's <a
+              href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-computer-vision/">MSCV</a> program<br> 
+            <strong>[Sept 2024]</strong> Started a new position as a SWE Fellow at <a
+              href="https://headstarter.co/">Headstarter AI</a><br>
+            <strong>[Jun 2024]</strong> Started a new position as a Summer Intern at 
+            <a href="https://www.iitb.ac.in/">Indian Institute of Technology, Bombay</a><br>
+            <strong>[June 2023]</strong>Started a new position as a Software Intern<a href="https://wondrlab.com/">
+            Wondrlab India Pvt. Ltd</a> <br>
+            <strong>[Jun 2024]</strong> Started a new position as a Research Intern at 
+            <a href="https://www.mhssce.ac.in/">MHSSCOE</a><br>
+            <strong>[Dec 2021]</strong> Started undergradute college at <a
+              href="https://tsec.edu/">Thadomal Shahani Engineering College</a>
+              (University of Mumbai)</a><br>
+            <strong>[August 2021]</strong> Completed Junior College <br>
+            <strong>[Feb 2019]</strong> Started Junior College at <a
+              href="https://www.pacejuniorsciencecollege.com/">Pace Junior Science College</a><br>
+            <strong>[June 2019]</strong> Completed GSCE at <a href="https://www.dsrvmalad.org/"> DSRV, Mumbai</a><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-            <div class="contact-row">
-              <div class="contact-icon">📍</div>
-              <div>
-                <div style="font-weight:600;">Location</div>
-                <div>Pittsburgh, PA, USA</div>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <div class="contact-icon">🌐</div>
-              <div>
-                <div style="font-weight:600;">Links</div>
-                <div>
-                  <a href="https://github.com/SarahPendhari" target="_blank" style="color:var(--cmu-red);">GitHub</a> ·
-                  <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank" style="color:var(--cmu-red);">Google Scholar</a> ·
-                  <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" style="color:var(--cmu-red);">LinkedIn</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card reveal">
-          <form id="contact-form">
-            <div class="field-group">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" required />
-            </div>
-
-            <div class="field-group">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-
-            <div class="field-group">
-              <label for="subject">Subject</label>
-              <input id="subject" name="subject" type="text" required />
-            </div>
-
-            <div class="field-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary" id="contact-submit">
-              Send Message
-            </button>
-
-            <div id="contact-status" class="contact-status" style="display:none;"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-social">
-        <a href="https://github.com/SarahPendhari" target="_blank" class="nav-icon-btn" aria-label="GitHub">GH</a>
-        <a href="https://www.linkedin.com/in/sarah-pendhari/" target="_blank" class="nav-icon-btn" aria-label="LinkedIn">in</a>
-        <a href="https://scholar.google.com/citations?user=kivt9RcAAAAJ&hl=en" target="_blank" class="nav-icon-btn" aria-label="Google Scholar">GS</a>
-        <a href="mailto:spendhar@andrew.cmu.edu" class="nav-icon-btn" aria-label="Email">@</a>
-      </div>
-      <div class="footer-badge">
-        Made with <span class="footer-heart">♥</span> & a lot of gradients
-      </div>
-      <div>© <span id="year"></span> Sarah Pendhari · All rights reserved.</div>
-    </div>
-  </footer>
-
-  <!-- SCROLL TO TOP -->
-  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-
-  <script>
-    // Dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Typing effect
-    const roles = [
-      'Computer Vision Researcher',
-      'Machine Learning Engineer',
-      'Multimodal AI Enthusiast'
-    ];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    const typingRoleEl = document.getElementById('typing-role');
-
-    function typeLoop() {
-      const current = roles[roleIndex];
-      const speed = deleting ? 55 : 90;
-
-      if (!deleting) {
-        charIndex++;
-        if (charIndex >= current.length) {
-          charIndex = current.length;
-          setTimeout(() => { deleting = true; }, 1000);
-        }
-      } else {
-        charIndex--;
-        if (charIndex <= 0) {
-          charIndex = 0;
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
-      }
-
-      typingRoleEl.textContent = current.slice(0, charIndex);
-      setTimeout(typeLoop, speed);
-    }
-    typeLoop();
-
-    // Smooth scroll for nav & buttons
-    function smoothScrollTo(target) {
-      const el = document.querySelector(target);
-      if (!el) return;
-      const headerOffset = 72;
-      const rect = el.getBoundingClientRect();
-      const offsetTop = window.scrollY + rect.top - headerOffset;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
-
-    document.querySelectorAll('[data-scroll]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-scroll');
-        smoothScrollTo(target);
-        // Close mobile nav if open
-        mobileNav.classList.remove('open');
-        navToggle.classList.remove('open');
-      });
-    });
-
-    // Header scroll behavior
-    const header = document.getElementById('site-header');
-    const scrollTopBtn = document.getElementById('scroll-top');
-    window.addEventListener('scroll', () => {
-      const offset = window.scrollY;
-      if (offset > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      if (offset > 300) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
-      }
-    });
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Mobile nav
-    const navToggle = document.getElementById('nav-toggle');
-    const mobileNav = document.getElementById('mobile-nav');
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-    });
-
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
-    revealEls.forEach(el => observer.observe(el));
-
-    // Projects filter
-    const filterButtons = document.querySelectorAll('.projects-filters .btn-outline');
-    const projectCards = document.querySelectorAll('.project-card');
-    let activeFilter = 'All';
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeFilter = btn.getAttribute('data-filter');
-        filterButtons.forEach(b => {
-          b.style.backgroundColor = '';
-          b.style.color = '';
-          b.style.borderColor = '';
-        });
-        btn.style.backgroundColor = 'var(--cmu-red)';
-        btn.style.color = '#ffffff';
-        btn.style.borderColor = 'var(--cmu-red)';
-
-        projectCards.forEach(card => {
-          const cat = card.getAttribute('data-category');
-          if (activeFilter === 'All' || cat === activeFilter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Initialize default button style
-    if (filterButtons[0]) {
-      filterButtons[0].style.backgroundColor = 'var(--cmu-red)';
-      filterButtons[0].style.color = '#ffffff';
-      filterButtons[0].style.borderColor = 'var(--cmu-red)';
-    }
-
-    // Project modal
-    const projectsData = {
-      1: {
-        title: 'ColourViTGAN — Hybrid Vision Transformer + CycleGAN Colorization',
-        description:
-          'ColourViTGAN combines Vision Transformers and CycleGAN for semantics-aware colorization. ViT learns global context through patch embeddings and multi-head attention, while CycleGAN reconstructs chrominance in the a*b* space, achieving 22.7 PSNR and 0.982 SSIM. The architecture improves visual fidelity, particularly for complex textures and foreground–background separation.',
-        tags: ['Vision Transformer', 'CycleGAN', 'Hybrid Architecture', 'Image Colorization', 'PyTorch'],
-        extra: 'Published at IEEE ICUIS 2024 · Best Paper Award.'
-      },
-      2: {
-        title: 'Attention-Enhanced Prototypical Networks for Few-Shot Microaneurysm Detection',
-        description:
-          'This work extends prototypical networks with channel and spatial attention to better capture subtle microaneurysm patterns in retinal fundus images. The model achieves 0.947 AUC-ROC and 0.915 F1 on the IDRiD dataset, using only few labeled examples per class. The approach is particularly effective in low-data regimes common in medical imaging.',
-        tags: ['Few-Shot Learning', 'Prototypical Networks', 'Attention Mechanisms', 'Diabetic Retinopathy'],
-        extra: 'Published at IEEE IATMSI 2025 · Best Paper Award.'
-      },
-      3: {
-        title: 'VisionGuard — Real-Time Object Detection Assistant',
-        description:
-          'VisionGuard is a real-time assistive perception system for visually impaired users. It uses YOLOv8 for on-device object detection and ONNX Runtime for low-latency inference, paired with an audio feedback loop. The system is optimized for edge hardware with careful pre- and post-processing to maintain responsiveness while preserving detection quality.',
-        tags: ['YOLOv8', 'Edge AI', 'Assistive Technology', 'ONNX Runtime', 'Real-Time Systems'],
-        extra: '<a href="https://github.com/SarahPendhari/VisionGuard--Real-Time-Object-Detection-Assistant" target="_blank" style="color:#a50034;font-weight:600;">View GitHub repository ↗</a>'
-      }
-    };
-
-    const modalBackdrop = document.getElementById('project-modal-backdrop');
-    const modal = document.getElementById('project-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
-    const modalTags = document.getElementById('modal-tags');
-    const modalExtra = document.getElementById('modal-extra');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-
-    function openModal(id) {
-      const data = projectsData[id];
-      if (!data) return;
-      modalTitle.textContent = data.title;
-      modalDescription.textContent = data.description;
-      modalTags.innerHTML = '';
-      data.tags.forEach(tag => {
-        const span = document.createElement('span');
-        span.className = 'modal-tag';
-        span.textContent = tag;
-        modalTags.appendChild(span);
-      });
-      modalExtra.innerHTML = data.extra || '';
-      modalBackdrop.classList.add('open');
-      modal.classList.add('open');
-      modalBackdrop.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeModal() {
-      modalBackdrop.classList.remove('open');
-      modal.classList.remove('open');
-      modalBackdrop.setAttribute('aria-hidden', 'true');
-    }
-
-    projectCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.getAttribute('data-project');
-        openModal(id);
-      });
-    });
-
-    modalCloseBtn.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', e => {
-      if (e.target === modalBackdrop) closeModal();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Contact form — open mail client
-    const contactForm = document.getElementById('contact-form');
-    const contactStatus = document.getElementById('contact-status');
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = contactForm.name.value.trim();
-      const email = contactForm.email.value.trim();
-      const subject = contactForm.subject.value.trim();
-      const message = contactForm.message.value.trim();
-
-      const mailSubject = encodeURIComponent(`Portfolio Contact: ${subject}`);
-      const mailBody = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${message}\n\n---\nSent from Sarah Pendhari's portfolio.`
-      );
-
-      try {
-        window.open(`mailto:spendhar@andrew.cmu.edu?subject=${mailSubject}&body=${mailBody}`, '_blank');
-        contactStatus.textContent =
-          'Your email client should now open with a pre-filled message. Please send it to complete.';
-        contactStatus.className = 'contact-status success';
-        contactStatus.style.display = 'block';
-        contactForm.reset();
-      } catch (err) {
-        contactStatus.textContent =
-          'Something went wrong opening your email client. You can email me directly at spendhar@andrew.cmu.edu.';
-        contactStatus.className = 'contact-status error';
-        contactStatus.style.display = 'block';
-      }
-    });
-  </script>
+    <table
+      style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+      <tbody>
+        <tr>
+          <td style="padding:0px">
+            <br>
+            <p style="text-align:right;font-size:small;">
+              Source code from <a href="https://github.com/jonbarron/jonbarron_website"> Jon Barron</a>
+              <br>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </body>
+
 </html>
